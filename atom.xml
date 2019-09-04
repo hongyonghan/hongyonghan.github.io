@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hongyonghan.github.io/"/>
-  <updated>2019-07-22T02:21:49.293Z</updated>
+  <updated>2019-09-04T15:20:42.781Z</updated>
   <id>https://hongyonghan.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://hongyonghan.github.io/post/%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8BString%E3%80%81StringBuffer%E3%80%81StringBuilder%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/"/>
+    <id>https://hongyonghan.github.io/post/面试题之String、StringBuffer、StringBuilder有什么区别/</id>
+    <published>2019-09-04T15:19:49.281Z</published>
+    <updated>2019-09-04T15:20:42.781Z</updated>
+    
+    <content type="html"><![CDATA[<p>title: JSP连接数据库实现注册登录<br>date: 2019-07-21 22:03:44<br>tags: JSP 注册 登录</p><p><strong>String</strong><br>String类底层是字符数组常量，加法操作。<br>String在进行字符串拼接时，会产生大量的垃圾数据，占用内存空间，消耗资源、执行效率是非常慢的。<br><strong>StringBuffer、StringBuild</strong>可以直接给char数组进行赋值，所以不会占用太多空间、而且拼接的效率也是比较快的。<br><strong>StringBuffer</strong>线程安全，执行效率较低。<br><strong>StringBuilder</strong>线程不安全，执行效率最高。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;title: JSP连接数据库实现注册登录&lt;br&gt;date: 2019-07-21 22:03:44&lt;br&gt;tags: JSP 注册 登录&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;String&lt;/strong&gt;&lt;br&gt;String类底层是字符数组常量，加法操作。&lt;br&gt;String在
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>数据结构课设《职工管理系统》</title>
