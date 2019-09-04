@@ -6,19 +6,41 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://hongyonghan.github.io">
-  <title>Archives: 2019/7 | hongyonghan</title>
+  <title>数学建模之蒙特卡罗方法 | hongyonghan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="山东科技大学17级学生">
-<meta name="keywords" content="机器学习 人工智能">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hongyonghan">
-<meta property="og:url" content="https://hongyonghan.github.io/archives/2019/07/index.html">
+  <meta name="description" content="主要解决仿真模拟的问题。 什么是蒙特卡罗方法。 蒙特卡罗方法又称为统计模拟法、随机抽样技术，是一种随机模拟方法，以概率和统计理论方法为基础的一种计算方法，是使用随机数或者伪随机数来解决很多计算问题的方法。将所求解的问题同一定的概率模型相联系，用电子计算机实现统计模拟或抽样，以获得问题的近似解。 基本思想 当所求的问题的解是某个事件的概率，或者是某个随机变量的数学期望，或者是与概率，数学期望有关的量">
+<meta name="keywords" content="数学建模  蒙特卡罗方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模之蒙特卡罗方法">
+<meta property="og:url" content="https://hongyonghan.github.io/post/数学建模之蒙特卡罗方法/index.html">
 <meta property="og:site_name" content="hongyonghan">
-<meta property="og:description" content="山东科技大学17级学生">
+<meta property="og:description" content="主要解决仿真模拟的问题。 什么是蒙特卡罗方法。 蒙特卡罗方法又称为统计模拟法、随机抽样技术，是一种随机模拟方法，以概率和统计理论方法为基础的一种计算方法，是使用随机数或者伪随机数来解决很多计算问题的方法。将所求解的问题同一定的概率模型相联系，用电子计算机实现统计模拟或抽样，以获得问题的近似解。 基本思想 当所求的问题的解是某个事件的概率，或者是某个随机变量的数学期望，或者是与概率，数学期望有关的量">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823103336983.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823103541160.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823105016371.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823110403939.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823110347983.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823110600634.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823110629993.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823111817508.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823111918202.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823112222832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823112700375.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823112741402.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823170738421.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082317082535.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823171302220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823171422538.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823171457318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082317155387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823171622915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823171705649.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-09-04T15:36:54.017Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hongyonghan">
-<meta name="twitter:description" content="山东科技大学17级学生">
+<meta name="twitter:title" content="数学建模之蒙特卡罗方法">
+<meta name="twitter:description" content="主要解决仿真模拟的问题。 什么是蒙特卡罗方法。 蒙特卡罗方法又称为统计模拟法、随机抽样技术，是一种随机模拟方法，以概率和统计理论方法为基础的一种计算方法，是使用随机数或者伪随机数来解决很多计算问题的方法。将所求解的问题同一定的概率模型相联系，用电子计算机实现统计模拟或抽样，以获得问题的近似解。 基本思想 当所求的问题的解是某个事件的概率，或者是某个随机变量的数学期望，或者是与概率，数学期望有关的量">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190823103336983.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="hongyonghan" type="application/atom+xml">
   
@@ -174,136 +196,395 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数学建模之蒙特卡罗方法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数学建模之蒙特卡罗方法
+    </h1>
+  
+
+        
+        <a href="/post/数学建模之蒙特卡罗方法/" class="archive-article-date">
+  	<time datetime="2019-09-03T17:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-04</time>
+</a>
+        
+	
+		 <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">2.1k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">7分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+		<!-- 添加代码 -->
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+	
+ 
+		
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>主要解决仿真模拟的问题。</p>
+<h4 id="什么是蒙特卡罗方法。"><a href="#什么是蒙特卡罗方法。" class="headerlink" title="什么是蒙特卡罗方法。"></a>什么是蒙特卡罗方法。</h4><ul>
+<li><p>蒙特卡罗方法又称为统计模拟法、随机抽样技术，是一种随机模拟方法，<strong>以概率和统计理论方法为基础的一种计算方法，是使用随机数或者伪随机数来解决很多计算问题的方法</strong>。将所求解的问题同一定的概率模型相联系，用电子计算机实现统计模拟或抽样，以获得问题的近似解。</p>
+<h4 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h4></li>
+<li><p>当所求的问题的解是某个事件的<strong>概率</strong>，或者是某个随机变量的<strong>数学期望</strong>，或者是<strong>与概率，数学期望有关的量时，</strong>通过某种试验的方法，得到该事件发生的<strong>概率</strong>,或者该随机变量若干个具体观察值的<strong>算术平方根</strong>，通过它得到问题的解。</p>
+</li>
+<li><p>当随机变量的取值仅为1或者0时，他的数学期望就是某个事件的概率。或者说某种事件的概率也是随机变量（仅取值1或者0）的数学期望。<br><img src="https://img-blog.csdnimg.cn/20190823103336983.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>例如上图所示，可以通过大量的随机模拟投掷来得到每个区域的概率。这样就可以转化到随机边界或者不定边界的问题。例如下图，可以求解具体A、B两个图形的面积。将求解面积的问题转化成求解概率的问题。<br><img src="https://img-blog.csdnimg.cn/20190823103541160.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="蒙特卡洛方法的特点"><a href="#蒙特卡洛方法的特点" class="headerlink" title="蒙特卡洛方法的特点"></a>蒙特卡洛方法的特点</h4><p>优点：</p>
+</li>
+<li><p>能够比较逼真地描述具有随机性质的事物的特点及物理实验过程。</p>
+</li>
+<li><p>受几何条件限制小</p>
+</li>
+<li><p>收敛速度与问题的维数无关</p>
+</li>
+<li><p>具有同时计算多个方案与多个未知量的能力</p>
+</li>
+<li><p>误差容易确定</p>
+</li>
+<li><p>程序结构简单，易于实现。<br>缺点：</p>
+</li>
+<li><p>收敛速度慢，耗时比较多</p>
+</li>
+<li><p>误差具有概率性</p>
+</li>
+<li><p>在粒子输运问题中，计算结果与系统大小有关。</p>
+</li>
+</ul>
+<p><strong>所以在使用蒙特卡洛方法的时候，要扬长避短，只对问题中难以使用解析（或者数值）方法处理的部分使用蒙塔卡罗方法，对那些能使用解析解处理的方法要尽量使用解析方法</strong></p>
+<h4 id="主要应用范围："><a href="#主要应用范围：" class="headerlink" title="主要应用范围："></a>主要应用范围：</h4><ul>
+<li>粒子输运问题（实验物理，反应堆物理）</li>
+<li>统计物理</li>
+<li>典型数学问题</li>
+<li>真空技术</li>
+<li>激光技术</li>
+<li>医学</li>
+<li>生物</li>
+<li>探矿等<h4 id="什么是随机数"><a href="#什么是随机数" class="headerlink" title="什么是随机数"></a>什么是随机数</h4></li>
+<li>在连续型随机变量的分布中，最简单而且最基本的分布是单位均匀分布。由该分布抽取的简单子样称为随机数序列，其中每一个体称为随机数</li>
+<li>符号：<br><img src="https://img-blog.csdnimg.cn/20190823105016371.png" alt="在这里插入图片描述"></li>
+<li>两个特点：独立性和均匀性<br>产生随机数：<br>随机数表：<ul>
+<li>随机数表是由0123456789十个数字组成，每个数字以0.1的等概率出现，数字之间相互独立，这些数字序列叫做随机数序列。</li>
+</ul>
+</li>
+<li>如果要得到n位有效数字的随机数。只需要将表中每n个相邻的随机数字合并在一起，且在最高位的前边加上小数点即可。例如，某随机数表的第一行数字为7 6 3 4 2 5 8 9 1 ，要想得到三位有效数字的随机数一次为0.763 0.425 0.891 .。。。如果是四位：则0.7634 0.2589.。。。</li>
+</ul>
+<p>物理方法：</p>
+<ul>
+<li><p>利用某些物理现象，在计算机上增加些特殊设备，可以在计算机上直接产生随机数。</p>
+</li>
+<li><p>作为随机数发生器的物理源主要有两种：一种是根据放射性物质的放射性，另一种是利用计算机的固有噪声。</p>
+</li>
+<li><p>一般情况下，任意一个随机数在计算机内总是用二进制的数表示的：<br><img src="https://img-blog.csdnimg.cn/20190823110403939.png" alt="在这里插入图片描述"><br>其中  <img src="https://img-blog.csdnimg.cn/20190823110347983.png" alt="在这里插入图片描述">    或者为0，或者为1。因此，利用物理方法在计算机产生随机数，就是要产生只取0或1的随机数字序列，数字之间相互独立，每个数字取0或1的概率均为0.5<br>缺点：</p>
+</li>
+<li><p>随机数表需在计算机中占有很大内存，而且也难以满足蒙特卡罗方法对随机数需要量非常大的要求，因此，该方法不适于在计算机上使用。</p>
+</li>
+<li><p>物理方法产生的随机数序列无法重复实现，不能进行程序复算。给验证结果带来很大困难。而且增加随机数发生器和电路联接等附加设备，费用昂贵。因此该方法也不适合在计算机上使用。</p>
+<h4 id="伪随机数"><a href="#伪随机数" class="headerlink" title="伪随机数"></a>伪随机数</h4><p>用递推公式<br><img src="https://img-blog.csdnimg.cn/20190823110600634.png" alt="在这里插入图片描述"><br>产生随机数列：<br><img src="https://img-blog.csdnimg.cn/20190823110629993.png" alt="在这里插入图片描述"><br>伪随机数存在的两个问题：</p>
+<ul>
+<li><p>递推公式和初始值确定后，整个随机数序列便被唯一确定。不满足随机数相互独立的要求。</p>
+</li>
+<li><p>由于随机数序列是由递推公式确定的，而在计算机上所能表示的【0，1】上的数又是有限的，因此，这种方法产生的随机数序列就不可能不出现重复。随机数序列出现周期性的循环现象。<br>解决方法：</p>
+</li>
+<li><p>不能从本质上加以改变，但只要递推公式选的比较好，随机数间的相互独立性是可以近似满足的。</p>
+</li>
+<li><p>因为使用蒙塔卡罗方法解任何具体问题时，所使用的随机数的个数总是有限的，只要所使用的随机数的个数不超过伪随机数序列出现循环现象时的长度就可以了。</p>
+<h4 id="应用：蒙塔卡罗方法计算积分"><a href="#应用：蒙塔卡罗方法计算积分" class="headerlink" title="应用：蒙塔卡罗方法计算积分"></a>应用：蒙塔卡罗方法计算积分</h4><p>可以通俗地说，蒙特卡罗方法是用随机试验的方法计算积分，即将所要计算的积分看作服从某种分布密度函数f(r)的随机变量ｇ(r)的数学期望 。<br><img src="https://img-blog.csdnimg.cn/20190823111817508.png" alt="在这里插入图片描述"><br>通过某种试验，得到Ｎ观察值r1，r2，…，rN（用概率语言来说，从分布密度函数f(r)中抽取Ｎ个子样r1，r2，…，rN，），将相应的Ｎ个随机变量的值g(r1)，g(r2)，…，g(rN)的算术平均值<br><img src="https://img-blog.csdnimg.cn/20190823111918202.png" alt="在这里插入图片描述"><br>例：求0-b的积分（求面积）：<br><img src="https://img-blog.csdnimg.cn/20190823112222832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>那么这个积分是否可以用一个近似的长方形来表示呢？是可以的<br><img src="https://img-blog.csdnimg.cn/20190823112700375.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>根据中值定理一定有一个点b*f(x)=那个积分。<br><img src="https://img-blog.csdnimg.cn/20190823112741402.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>积分问题可以抽象出一个高，这个高就是那个平均值。</p>
+<h4 id="蒙特卡洛方法步骤如下："><a href="#蒙特卡洛方法步骤如下：" class="headerlink" title="蒙特卡洛方法步骤如下："></a>蒙特卡洛方法步骤如下：</h4><ul>
+<li><p>1在区间[a,b]上利用计算机均匀产生n个随机数x1,x2…..xn，使用matlab软件的unifrnd命令实现。</p>
+</li>
+<li><p>2计算每一个随机数想对应的被积函数值f(x1),f(x2),f(xn)</p>
+</li>
+<li><p>计算被积函数值的平均值。<br><img src="https://img-blog.csdnimg.cn/20190823170738421.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>4原式约等于</p>
+</li>
+<li><p><img src="https://img-blog.csdnimg.cn/2019082317082535.png" alt="在这里插入图片描述"></p>
+<h4 id="蒙特卡罗方法：随机投点试验求近似解"><a href="#蒙特卡罗方法：随机投点试验求近似解" class="headerlink" title="蒙特卡罗方法：随机投点试验求近似解"></a>蒙特卡罗方法：随机投点试验求近似解</h4><p>例子：<br>给定曲线y =2 – x2 和曲线y3 = x2，曲线的交点为：P1( – 1，1 )、P2( 1，1 )。曲线围成平面有限区域，用蒙特卡罗方法计算区域面积。<br><img src="https://img-blog.csdnimg.cn/20190823171302220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">P=rand(10000,2);</span><br><span class="line">x=2*P(:,1)-1;</span><br><span class="line">y=2*P(:,2);</span><br><span class="line">II=find(y&lt;=2-x.^2&amp;y.^3&gt;=x.^2);</span><br><span class="line">M=length(II);</span><br><span class="line">S=4*M/10000</span><br><span class="line">plot(x(II),y(II),&apos;g.&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>例5.14  计算       <img src="https://img-blog.csdnimg.cn/20190823171422538.png" alt="在这里插入图片描述">其中D为y= x – 2与y2 = x 所围D的边界曲线交点为：(–1，1)，(4，2)，被积函数在求积区域内的最大值为16。积分值是三维体积，该三维图形位于立方体区域<br>0≤ x ≤4，–1≤ y ≤2，0 ≤ z ≤16<br>内，立方体区域的体积为192。 <img src="https://img-blog.csdnimg.cn/20190823171457318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">data=rand(10000,3);</span><br><span class="line"> x=4*data(:,1);</span><br><span class="line"> y=-1+3*data(:,2);</span><br><span class="line"> z=16*data(:,3);</span><br><span class="line"> II=find(x&gt;=y.^2&amp;x&lt;=y+2&amp;z&lt;=x.*(y.^2));</span><br><span class="line"> M=length(II);</span><br><span class="line"> V=192*M/10000</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/2019082317155387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">P=rand(10000,4);</span><br><span class="line">x=-1+2*P(:,1); y=-1+2*P(:,2);</span><br><span class="line">z=P(:,3);u=2*P(:,4);</span><br><span class="line">II=find(z&gt;sqrt(x.^2+y.^2)&amp;z&lt;=1&amp;u&lt;=x.^2+y.^2+z.^2);</span><br><span class="line">M=length(II);</span><br><span class="line">V=8*M/10000</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190823171622915.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function icecream(m,n) </span><br><span class="line">if nargin==0,m=20;n=100;end</span><br><span class="line">t=linspace(0,2*pi,n);</span><br><span class="line">r=linspace(0,1,m);</span><br><span class="line">x=r&apos;*cos(t);y=r&apos;*sin(t);</span><br><span class="line">z1=sqrt(x.^2+y.^2);</span><br><span class="line">z2=1+sqrt(1+eps-x.^2-y.^2);</span><br><span class="line">X=[x;x];Y=[y;y];</span><br><span class="line">Z=[z1;z2];</span><br><span class="line">mesh(X,Y,Z)</span><br><span class="line">view(0,-18)</span><br><span class="line">colormap([0 0 1]),axis off</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190823171705649.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x1=-1:0.1:1; </span><br><span class="line">y1=x1.^2.^(1/3); </span><br><span class="line">x2=1:-0.1:-1;</span><br><span class="line"> y2=2-x2.^2; </span><br><span class="line">fill([x1,x2],[y1,y2],&apos;g&apos;)</span><br><span class="line">axis off</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+			
+			  
+
+
+
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>愿一起成长<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+				  
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+					  
+                    </div>
+                    
+				
+                    
+					
+					
+				
+                  </div>
+                </span>
+              </span>
+			 
+            </span>
+		<!-- 添加代码  -->
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- article.ejs自身代码-->
+<span id="busuanzi_container_page_pv">
+   		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	    </span>
+
+          </div>
+          </a>
+        </div>
+      
+	  
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/数据结构课设《职工管理系统》/" class="archive-article-date">
-  	<time datetime="2019-07-22T00:32:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/数据结构课设《职工管理系统》/">数据结构课设《职工管理系统》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数据结构 职工管理系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学建模  蒙特卡罗方法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hongyonghan.github.io/post/数学建模之蒙特卡罗方法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+	  
+      <div class="clearfix">
+	  </div>
+    </div>
   </div>
 </article>
+
   
+<nav id="article-nav">
+  
+    <a href="/post/数学建模之Fisher判别/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数学建模之Fisher判别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/数学建模之粒子群算法详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数学建模之粒子群（鸟群算法）算法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/面试题之String、StringBuffer、StringBuilder有什么区别/" class="archive-article-date">
-  	<time datetime="2019-07-21T14:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
+    <!--MOB SHARE BEGIN-->
+    <div class="-mob-share-ui-button -mob-share-open">分享</div>
+    <div class="-mob-share-ui" style="display: none">
+        <ul class="-mob-share-list">
+            <li class="-mob-share-weibo"><p>新浪微博</p></li>
+            <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+            <li class="-mob-share-qzone"><p>QQ空间</p></li>
+            <li class="-mob-share-qq"><p>QQ好友</p></li>
+            <li class="-mob-share-weixin"><p>微信</p></li>                        <li class="-mob-share-twitter"><p>Twitter</p></li>     
+            <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+            <li class="-mob-share-mingdao"><p>明道</p></li>            
+            <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+        </ul>
+    <div class="-mob-share-close">取消</div>
+</div>
+    <div class="-mob-share-ui-bg"></div>
+    <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey={{ theme.shareSDKappkey }}"></script>
+<!--MOB SHARE END-->
+
+					
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "sIwU88GIB3HAxXR2BqejDlep-gzGzoHsz",
+            app_key: "PBt9V2tROfVypmHjNmPz0eIS",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/面试题之String、StringBuffer、StringBuilder有什么区别/">面试题之String、StringBuffer、StringBuilder有什么区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">String StringBuffer StrigBuilder</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是蒙特卡罗方法。"><span class="toc-number">1.</span> <span class="toc-text">什么是蒙特卡罗方法。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基本思想"><span class="toc-number">2.</span> <span class="toc-text">基本思想</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#蒙特卡洛方法的特点"><span class="toc-number">3.</span> <span class="toc-text">蒙特卡洛方法的特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主要应用范围："><span class="toc-number">4.</span> <span class="toc-text">主要应用范围：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是随机数"><span class="toc-number">5.</span> <span class="toc-text">什么是随机数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#伪随机数"><span class="toc-number">6.</span> <span class="toc-text">伪随机数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应用：蒙塔卡罗方法计算积分"><span class="toc-number">7.</span> <span class="toc-text">应用：蒙塔卡罗方法计算积分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#蒙特卡洛方法步骤如下："><span class="toc-number">8.</span> <span class="toc-text">蒙特卡洛方法步骤如下：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#蒙特卡罗方法：随机投点试验求近似解"><span class="toc-number">9.</span> <span class="toc-text">蒙特卡罗方法：随机投点试验求近似解</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/JSP连接数据库实现注册登录/" class="archive-article-date">
-  	<time datetime="2019-07-21T14:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/JSP连接数据库实现注册登录/">JSP连接数据库实现注册登录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSP 注册 登录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -330,8 +611,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

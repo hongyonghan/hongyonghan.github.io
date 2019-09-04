@@ -6,19 +6,90 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://hongyonghan.github.io">
-  <title>Archives: 2019/7 | hongyonghan</title>
+  <title>数学建模之聚类分析 | hongyonghan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="山东科技大学17级学生">
-<meta name="keywords" content="机器学习 人工智能">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hongyonghan">
-<meta property="og:url" content="https://hongyonghan.github.io/archives/2019/07/index.html">
+  <meta name="description" content="聚类分析 聚类分析 所研究的样本或者变量之间存在不同的相似性，要求设法找出一些能够度量它们之间相似程度的统计量作为分类的依据，再利用这些将样本或者变量进行分类。 系统聚类分析：将n个样本或者n个指标看成n类，一类包括一个样本或者指标，然后将性质最接近的两类合并成一个新类，依次类推。最终可以按照需要来决定分多少类，每类有多少样本（指标）。系统聚类分析的步骤 1计算n个样本两两之间的距离。 2构成n个">
+<meta name="keywords" content="数学建模 聚类分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模之聚类分析">
+<meta property="og:url" content="https://hongyonghan.github.io/post/数学建模之聚类分析/index.html">
 <meta property="og:site_name" content="hongyonghan">
-<meta property="og:description" content="山东科技大学17级学生">
+<meta property="og:description" content="聚类分析 聚类分析 所研究的样本或者变量之间存在不同的相似性，要求设法找出一些能够度量它们之间相似程度的统计量作为分类的依据，再利用这些将样本或者变量进行分类。 系统聚类分析：将n个样本或者n个指标看成n类，一类包括一个样本或者指标，然后将性质最接近的两类合并成一个新类，依次类推。最终可以按照需要来决定分多少类，每类有多少样本（指标）。系统聚类分析的步骤 1计算n个样本两两之间的距离。 2构成n个">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823205324557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823211519779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823212650315.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823212809154.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823213019340.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823213503574.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823213619204.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823214216451.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082321453453.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823214656730.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190823215543143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082321544054.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824223940426.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824224024206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824224034285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082422405047.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824224130597.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824224214128.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082422425279.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824224759601.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824225045568.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082422511590.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824225151357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824225204432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824225229406.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082422530976.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824225351102.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824230047147.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824230107792.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824230119443.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824230133855.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824230206493.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824230218598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082423035444.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824231103223.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824231402285.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190824232850229.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825111309603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825112051179.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825112550873.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825113231773.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825161137630.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825161453934.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825161504164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825161944848.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825162001440.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825162353184.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825162403245.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825162418703.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825162817740.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825163942667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825163956717.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825164024696.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825164046662.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082516410065.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825164111736.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825164837559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825165035893.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082516522797.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825165353424.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825165455817.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825165522128.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825165915300.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825171159973.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825200325185.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825202205804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825202219835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082520234244.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190825202420883.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-09-04T15:31:17.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hongyonghan">
-<meta name="twitter:description" content="山东科技大学17级学生">
+<meta name="twitter:title" content="数学建模之聚类分析">
+<meta name="twitter:description" content="聚类分析 聚类分析 所研究的样本或者变量之间存在不同的相似性，要求设法找出一些能够度量它们之间相似程度的统计量作为分类的依据，再利用这些将样本或者变量进行分类。 系统聚类分析：将n个样本或者n个指标看成n类，一类包括一个样本或者指标，然后将性质最接近的两类合并成一个新类，依次类推。最终可以按照需要来决定分多少类，每类有多少样本（指标）。系统聚类分析的步骤 1计算n个样本两两之间的距离。 2构成n个">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190823205324557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="hongyonghan" type="application/atom+xml">
   
@@ -174,136 +245,444 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数学建模之聚类分析" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数学建模之聚类分析
+    </h1>
+  
+
+        
+        <a href="/post/数学建模之聚类分析/" class="archive-article-date">
+  	<time datetime="2019-09-03T16:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-04</time>
+</a>
+        
+	
+		 <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">6k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">24分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+		<!-- 添加代码 -->
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+	
+ 
+		
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="聚类分析"><a href="#聚类分析" class="headerlink" title="聚类分析"></a>聚类分析</h4><ul>
+<li>聚类分析 所研究的样本或者变量之间存在<strong>不同的相似性</strong>，要求设法找出一些能够度量它们之间<strong>相似程度的统计量</strong>作为分类的<strong>依据</strong>，再利用这些将样本或者变量进行<strong>分类</strong>。</li>
+<li>系统聚类分析：将n个样本或者n个指标<strong>看成n类</strong>，一类包括一个样本或者指标，然后将<strong>性质最接近的两类</strong>合并成<strong>一个新类</strong>，依次类推。最终可以按照需要来决定分多少类，每类有多少样本（指标）。<h4 id="系统聚类分析的步骤"><a href="#系统聚类分析的步骤" class="headerlink" title="系统聚类分析的步骤"></a>系统聚类分析的步骤</h4></li>
+<li>1计算n个样本两两之间的距离。</li>
+<li>2构成n个类，每类只包含一个样品</li>
+<li>3合并距离最近的两类为一个新类  </li>
+<li>4计算新类与当前各类的距离（新类与当前类的距离等于当前类与组合类中包含的类的距离的最小值），若类的个数等于1，转5，否则转3</li>
+<li>5画聚类图 </li>
+<li>6 决定类的个数和类。</li>
+</ul>
+<h4 id="系统聚类分析"><a href="#系统聚类分析" class="headerlink" title="系统聚类分析"></a>系统聚类分析</h4><p>主要介绍系统聚类分析方法。系统聚类分析法是聚类分析中应用最为广泛的一种方法。<br>它的<strong>基本原理</strong>是：<strong>首先将一定数量的样品或者指标各自看成一类，然后根据样品（或者指标）的亲疏程度，将亲疏程度最高的两类进行合并。然后考虑合并后的类与其他类之间的亲疏程度，再进行合并。重复这一过程，直至将所有的样品（或者指标）合并为一类</strong>。<br>系统聚类分析用到的函数：<br><img src="https://img-blog.csdnimg.cn/20190823205324557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="聚类分析-1"><a href="#聚类分析-1" class="headerlink" title="聚类分析"></a>聚类分析</h4><ul>
+<li><p>研究对于<strong>样品或者指标</strong>进行分类的一种多元统计方法，是依据研究对象的个体的特征进行分类的方法。</p>
+</li>
+<li><p>聚类分析把分类对象按照一定规则分成若干类，这些<strong>类非事先</strong>给定的，而是<strong>根据数据特征确定的</strong>。在同一类中这些对象在某种意义上趋向于彼此相似，而在不同类中趋向于不相似。</p>
+</li>
+<li><p>职能是建立一种能按照样品或者变量的<strong>相似程度进行分类</strong>的方法。 </p>
+<h4 id="聚类分析种类"><a href="#聚类分析种类" class="headerlink" title="聚类分析种类"></a>聚类分析种类</h4></li>
+<li><p>聚类分析有两种：一种是对样品的分类，称为Q型，另一种是对变量（指标）的分类，称为R型。</p>
+</li>
+<li><p>R型聚类分析的主要作用：1.不但可以了解个别变量之间的亲疏程度，而且可以了解各个变量组合之间的亲疏程度。2.根据变量的分类结果以及它们之间的关系，可以<strong>选择主要变量</strong>进行Q型聚类分析或回归分析。（回归系数R^2为选择标准）</p>
+</li>
+<li><p>Q型聚类分析的主要作用：1.可以综合利用多个变量的信息对样本进行分析。2.分类效果直观，聚类谱系图清楚地表现数值分类结果。3.聚类分析所得到地结果比传统分类方法更细致全面合理。本文主要讨论Q型。</p>
+<h4 id="聚类分析基本思想："><a href="#聚类分析基本思想：" class="headerlink" title="聚类分析基本思想："></a>聚类分析基本思想：</h4><p>在生产实际中经常遇到给产品等级进行分类的问题，如一等品、二等品等，在生物学中，要根据生物的特征进行分类；在考古时要对古生物化石进行科学分类；在球类比赛中经常要对各球队进行分组如何确定种子队，这些问题就是聚类分析问题。随着科学技术的发展，我们利用已知数据首先提取数据特征，然后借助计算机依据这些特征进行分类，聚类的依据在于各类别之间的接近程度如何计量，通常采取距离与相似系数进行衡量。</p>
+</li>
+<li><p>设有n个样品的p元观测数据组成一个数据矩阵。如下：<br><img src="https://img-blog.csdnimg.cn/20190823211519779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>其中每一行代表一个样品，每一列代表一个指标，xij表示第i个样品关于第j个指标的观测值，聚类分析的基本思想就是<strong>在样品之间定义距离</strong>，<strong>在指标之间定义相似系数</strong>，样品之间的<strong>相似系数</strong>刻画指标之间的<strong>相似度</strong>。 将样品（或者变量）按照<strong>相似度的大小逐一归类</strong>，关系密切的聚集到较小的一类，关系疏远的聚集到较大的一类，聚类分析通常有：谱系聚类、快速聚类。本文主要介绍谱系聚类。</p>
+<h4 id="样品间的相似度量-距离"><a href="#样品间的相似度量-距离" class="headerlink" title="样品间的相似度量-距离"></a>样品间的相似度量-距离</h4><h6 id="一-常用距离的定义"><a href="#一-常用距离的定义" class="headerlink" title="一 常用距离的定义"></a>一 常用距离的定义</h6><p>设有n个样品的p元观测数据：<br><img src="https://img-blog.csdnimg.cn/20190823212650315.png" alt="在这里插入图片描述"><br>这时，每个样品可看成p元空间的一个点，每两个点之间的距离记为d(xi,xj)满足条件：<br><img src="https://img-blog.csdnimg.cn/20190823212809154.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>距离计算：<br><img src="https://img-blog.csdnimg.cn/20190823213019340.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190823213503574.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt=" "><br>例题：<br>为了研究辽宁、浙江、河南、甘肃、青海5省1991年城镇居民生活消费规律，需要利用调查资料对五个省进行分类，指标变量共8个，意义如下：x1:人均粮食支出，x2:人均副食支出;x3:人均烟酒茶支出，x4:人均其他副食支出,x5:人均衣着商品支出,x6:人均日用品支出，x7:人均燃料支出，x8人均非商品支出。<br><img src="https://img-blog.csdnimg.cn/20190823213619204.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>题目中给的数据都是有关系的。</p>
+<ul>
+<li>解：计算各省之间的欧氏、绝对、明氏距离</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a=[7.9	39.77	8.49	12.94	19.27	11.05	2.04	13.29</span><br><span class="line">7.68	50.37	11.35	13.3	19.25	14.59	2.75	14.87</span><br><span class="line">9.42	27.93	8.2	8.14	16.17	9.42	1.55	9.76</span><br><span class="line">9.16	27.98	9.01	9.32	15.99	9.1	1.82	11.35</span><br><span class="line">10.06	28.64	10.52	10.05	16.18	8.39	1.96	10.81];</span><br><span class="line">d1=pdist(a);% 此时计算出各行之间的欧氏距离，为了得到书中的距离矩阵，我们键入命令：</span><br><span class="line">D= squareform(d1),  % 注意此时d1必须是一个行向量，结果是实对称矩阵</span><br><span class="line">%若想得到书中的三角阵，则有命令：</span><br><span class="line">S = tril(squareform(d1))</span><br><span class="line">d2=pdist(a,&apos;cityblock&apos;); S2 = tril(squareform(d2))</span><br><span class="line">d3=pdist(a,&apos;minkowski&apos;,3); S3 = tril(squareform(d3))</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：<br><img src="https://img-blog.csdnimg.cn/20190823214216451.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>例：表1.1 式1999年中国省（自治区、直辖市）的城市规模结构特征的一些数据，试通过聚类分析将这些省（自治区、直辖市）进行分类。<br><img src="https://img-blog.csdnimg.cn/2019082321453453.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190823214656730.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>2.基本假设<br>1.假设图表中的数据经过完全统计；<br>2.假设本题中考虑的指标变量相互之间无联系。</p>
+<ul>
+<li>模型的建立与分析<br><img src="https://img-blog.csdnimg.cn/20190823215543143.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>模型的求解</li>
+<li>模型的求解<br>绘制聚类图，根据实际需要决定类的个数和类。<br>根据上述解题过程编写如下MATLAB代码：保留列数据，新建为“str801.txt”；保留表中所有数据，新建为“data801.txt”<br><code>clc,clear
+fid=fopen(&#39;str801.txt&#39;,&#39;r&#39;);
+ss=textscan(fid,&#39;%s&#39;);
+a=load(&#39;data801.txt&#39;);
+b=zscore(a);
+d=pdist(b);
+z=linkage(d);
+dendrogram(z,&#39;label&#39;,ss{:})</code><img src="https://img-blog.csdnimg.cn/2019082321544054.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>结果分析：<br>根据编写代码绘制出的聚类分析图如上图1.1所示，我们发现京津冀、苏沪、青海各自成一类，其余地区成一类。<br>例2. 13个国家1990，1995，2000可持续发展能力如下：分成4类<br><img src="https://img-blog.csdnimg.cn/20190824223940426.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>采取不同的距离，得到以下结果：<br><img src="https://img-blog.csdnimg.cn/20190824224024206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190824224034285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019082422405047.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h4 id="变量间的相似度量——相似系数"><a href="#变量间的相似度量——相似系数" class="headerlink" title="变量间的相似度量——相似系数"></a>变量间的相似度量——相似系数</h4>当对p个指标变量进行聚类时，用相似系数来衡量变量之间的相似程度（关联度），若用       表示变量之间的相似系数，则应满足：<br><img src="https://img-blog.csdnimg.cn/20190824224130597.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>相似系数中最常用的是<strong>相关系数与夹角余弦</strong>。</li>
+<li>① 夹角余弦<br>两变量的夹角余弦定义为：<br><img src="https://img-blog.csdnimg.cn/20190824224214128.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>② 相关系数<br>两变量的相关系数定义为：<br><img src="https://img-blog.csdnimg.cn/2019082422425279.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>例3.计算例1中各指标之间的相关系数与夹角余弦：<br>解：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a=[7.9	39.77	8.49	12.94	19.27	11.05	2.04	13.29</span><br><span class="line">7.68	50.37	11.35	13.3	19.25	14.59	2.75	14.87</span><br><span class="line">9.42	27.93	8.2	8.14	16.17	9.42	1.55	9.76</span><br><span class="line">9.16	27.98	9.01	9.32	15.99	9.1	1.82	11.35</span><br><span class="line">10.06	28.64	10.52	10.05	16.18	8.39	1.96	10.81];</span><br><span class="line">R=corrcoef(a);% 指标之间的相关系数</span><br><span class="line">a1=normc(a); % 将a的各列化为单位向量</span><br><span class="line">J=a1&apos;*a1  % 计算a中各列之间的夹角余弦</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：<br><img src="https://img-blog.csdnimg.cn/20190824224759601.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="谱系聚类法"><a href="#谱系聚类法" class="headerlink" title="谱系聚类法"></a>谱系聚类法</h4><p>谱系聚类法是目前应用较为广泛的一种聚类法。谱系聚类是根据生物分类学的思想对研究对象进行分类的方法。在生物分类学中，分类的单位是：门、纲、目、科、属、种。其中种是分类的基本单位，分类单位越小，它所包含的生物就越少，生物之间的共同特征就越多。利用这种思想，谱系聚类首先将各样品自成一类，然后把最相似（距离最近或相似系数最大）的样品聚为小类，再将已聚合的小类按各类之间的相似性（用类间距离度量）进行再聚合，随着相似性的减弱，最后将一切子类都聚为一大类，从而得到一个按相似性大小聚结起来的一个谱系图。<br>聚类分析的<strong>基本思想</strong>是认为我们所研究的样本或指标（变量）之间存在着<strong>程度不同的相似性（亲疏关系）</strong>。于是根据一批样本的多个观测指标，具体找出一些彼此之间相似程度较大的样本（或指标）聚合为一类，把另外一些彼此之间相似程度较大的样本（或指标）又聚合为另一类，关系密切的聚合到一个小的分类单位，关系疏远的聚合到一个大的分类单位，直到把所有样本（或指标）都聚合完毕，把不同的类型一一划分出来，形成一个由小到大的分类系统。最后把整个分类系统画成一张谱系图，用它把所有样本（或指标）间的亲疏关系表示出来。这种方法是最常用的、最基本的一种，称为<strong>系统聚类分析</strong>。</p>
+<h4 id="类间距离"><a href="#类间距离" class="headerlink" title="类间距离"></a>类间距离</h4><p>介绍两个类别之间的距离：<br>设dij表示两个样品xi,xj之间的距离，Gp,Gq分别表示两<br>个类别，各自含有np,nq个样品.<br>（1）最短距离：<br><img src="https://img-blog.csdnimg.cn/20190824225045568.png" alt="在这里插入图片描述"><br>用两类中样品之间的距离最短者作为两类间距离。<br>（2）最长距离<br><img src="https://img-blog.csdnimg.cn/2019082422511590.png" alt="在这里插入图片描述"><br>用两类中样品之间的距离最长者作为两类间距离<br><img src="https://img-blog.csdnimg.cn/20190824225151357.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190824225204432.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">（3）类平均距离<br><img src="https://img-blog.csdnimg.cn/20190824225229406.png" alt="在这里插入图片描述"><br>用两类中所有两两样品之间距离的平均作为两类间距离。<br>（4）重心距离<br><img src="https://img-blog.csdnimg.cn/2019082422530976.png" alt="在这里插入图片描述"><br>用两类的重心之间的欧氏距离作为两类间的距离。<br>（5）离差平方和距离（ward）<br><img src="https://img-blog.csdnimg.cn/20190824225351102.png" alt="在这里插入图片描述"><br>显然，离差平方和距离与重心距离的平方成正比。</p>
+<h4 id="类间距离的递推公式"><a href="#类间距离的递推公式" class="headerlink" title="类间距离的递推公式"></a>类间距离的递推公式</h4><p>设有两类Gp，Gq合并成新的一类Gr，包含了nr=np+nq个样品。如何计算Gr与其他类别Gk之间的距离，这就需要建立类间距离的递推公式。</p>
+<ul>
+<li><p>1.最短距离<br><img src="https://img-blog.csdnimg.cn/20190824230047147.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>2最长距离<br><img src="https://img-blog.csdnimg.cn/20190824230107792.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>3类平均距离<br><img src="https://img-blog.csdnimg.cn/20190824230119443.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>4重心距离<br><img src="https://img-blog.csdnimg.cn/20190824230133855.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190824230206493.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190824230218598.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="谱系聚类法的步骤"><a href="#谱系聚类法的步骤" class="headerlink" title="谱系聚类法的步骤"></a>谱系聚类法的步骤</h4></li>
+<li><p>1选择样本间距离的定义及类间距离的定义</p>
+</li>
+<li><p>2计算n个样本两两之间的距离，得到距离矩阵。<br><img src="https://img-blog.csdnimg.cn/2019082423035444.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>3构造个类，每类只含有一个样本</p>
+</li>
+<li><p>4合并符合类间距离定义要求的两类为一个新类</p>
+</li>
+<li><p>5计算新类与当前各类的距离。若类的个数为1，则转到步骤6否则回到步骤4</p>
+</li>
+<li><p>6画出聚类图</p>
+</li>
+<li><p>7决定类的个数和类。 </p>
+<h4 id="系统聚类分析的方法"><a href="#系统聚类分析的方法" class="headerlink" title="系统聚类分析的方法"></a>系统聚类分析的方法</h4></li>
+<li><p>系统聚类法的聚类原则决定于<strong>样本间的距离以及类间距离的定义</strong>。类间距离的不同定义就产生了不同的系统聚类分析方法。</p>
+</li>
+<li><p>以下用dij表示样品X(i)和X(j)之间的距离，当样品间的亲疏关系采用相似系数Cij时<br><img src="https://img-blog.csdnimg.cn/20190824231103223.png" alt="在这里插入图片描述"></p>
+</li>
+<li><p>以下用D(p,q)表示类Gp和Gq之间的距离。</p>
+</li>
+<li><p>（1）n个样品开始作为n个类，计算两两之间的距离或者相似系数，得到实对称矩阵。<br><img src="https://img-blog.csdnimg.cn/20190824231402285.png" alt="在这里插入图片描述"></p>
+<ul>
+<li>（2）从D0的非主对角线上找最小（距离）或者最大元素（相似系数），设该元素是Dpq，则<strong>将Gp,Gq合并成一个新类Gr=（Gp,Gq）</strong>,在D0中去掉Gp，Gq所在的两行、两列，并加上新类与其余各类之间的距离（或者相似系数），得到n-1阶矩阵D1.</li>
+<li>(3)从D1出发重复步骤（2）的做法得到D2,再由D2出发重复上述步骤，直到所有样品聚为一个大类为止。</li>
+<li>（4）在合并过程中要记下合并样品的编号及两类合并时的水平，并绘制聚类谱系图。</li>
+</ul>
+<p>例4. 从例1算得的样品间的欧氏距离矩阵出发，用下列方法进行谱系聚类。<br>（1）最短距离，（2）最长距离<br>解：我们用1，2，3，4，5分别表示辽宁、浙江、河南、甘肃和青海，将距离矩阵记为D0</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190824232850229.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>（1）最短距离法：将各省看成一类，即Gi={i} i=1，…..5,从D0可以看出各类中距离最短的是d43=2.20，因此将G3,G4在2.20水平上合成一个新类G6={3,4},计算G6和G1,G2,G5之间的最短距离，得到：</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190825111309603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>即将（3，4）作为单独一列，一行。将上述计算的结果作为第一列，从D0中去掉第3，4行与3，4列，剩余元素作为其余各列得到D1<br><img src="https://img-blog.csdnimg.cn/20190825112051179.png" alt="在这里插入图片描述"><br> 然后从D1可以看出G5与G6中的距离最小，因此在2.21的水平上将G6与G5合成一类G7，即G7={3,4,5},计算G7与G1、G2之间的最短距离得到：<br> <img src="https://img-blog.csdnimg.cn/20190825112550873.png" alt="在这里插入图片描述"><br>将计算结果作为第一列，从D1中划掉{3，4}与{5}所在的行和列，剩余元素作为其他列得到：<br><img src="https://img-blog.csdnimg.cn/20190825113231773.png" alt="在这里插入图片描述"><br> 从D2中可以看出G1，G2最接近，在11.67的水平上合并成一类G8,至此只剩下G7,G8两类，他们之间的距离为：12.8，故在此水平将合成一类，包含了全部的五个省份。最后，作出谱系聚类图。<br> 以<strong>2018年五一数学建模C题为例。</strong><br> <img src="https://img-blog.csdnimg.cn/20190825161137630.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 注意对数据的量化处理方式：<br> <img src="https://img-blog.csdnimg.cn/20190825161453934.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20190825161504164.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20190825161944848.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20190825162001440.png" alt="  "><br> <img src="https://img-blog.csdnimg.cn/20190825162353184.png" alt="在这里插入图片描述"><br> 数据如下：<img src="https://img-blog.csdnimg.cn/20190825162403245.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190825162418703.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">clc,clear</span><br><span class="line">a=[3.248099862 	1400.268343019 	1595.279262	5950.668859	653.767546	388.6101631	0.357295727	18320.46154	0.000181229 	83235.96118	11701.2957</span><br><span class="line">0.313842461 	159.444173537 	177.7462234	662.2847022	70.01836837	42.60477173	0.342129003	20970	0.000008924 	2628	771.0150925</span><br><span class="line">0.466173300 	257.271504590 	265.1189989	1025.518975	94.97690194	61.78586048	0.323605467	21921.75	0.000022727 	914	1642.154022</span><br><span class="line">0.653314088 	193.740207541 	257.3170485	955.9373388	79.74565749	56.26133025	0.33415978	14504.66667	0.000012397 	339	633.8301523</span><br><span class="line">4.777377094 	1890.965552478 	2082.616795	8007.801239	932.9081486	558.0550182	0.327117741	16111.6	0.000016287 	4840.373816	860.0313942</span><br><span class="line">0.274618332 	118.983750840 	126.9446139	465.0666947	48.56818687	31.38656774	0.416476625	16795.5	0.000012747 	3271	389.5885042</span><br><span class="line">0.227587522 	79.673939077 	103.4399852	402.6383542	35.18759255	21.34329384	0.314754098	17450	0.000002348 	887.733767	330.9389993</span><br><span class="line">0.416676302 	169.501844080 	194.3978197	776.6916763	59.72942049	44.16420549	0.320140105	18562.5	0.000011300 	8691.278086	591.0445205</span><br><span class="line">0.275472987 	115.688675169 	138.2225522	546.2145303	39.05687346	31.59174764	0.341489362	19719	0.000010870 	3565.464982	342.6701571</span><br><span class="line">0.224227313 	173.672287944 	185.1560534	692.5092589	85.71248786	47.12613714	0.314630309	30815	0.000010066 	2608.055401	1917.304038</span><br><span class="line">0.642387833 	366.064706442 	402.7450517	1551.719929	240.1888106	118.1672418	0.227734688	24155.5	0.000023164 	7151.532134	2759.019264</span><br><span class="line">0.216517796 	47.380797240 	39.30549861	129.1619382	11.69526008	9.253392589	0.620879121	6030	0.000000266 	648.8938883	19.44754811</span><br><span class="line">0.212064205 	72.389522219 	68.70408516	275.8842798	18.86692494	14.42764848	0.304106548	13175	0.000001608 	789.8	8.464149342</span><br><span class="line">]</span><br><span class="line">b=zscore(a);</span><br><span class="line">b=zscore(a);</span><br><span class="line">r=corrcoef(b)</span><br><span class="line">d=tril(1-r);d=nonzeros(d)&apos;;</span><br><span class="line">d=pdist(b&apos;,&apos;correlation&apos;);</span><br><span class="line">z=linkage(d,&apos;average&apos;)</span><br><span class="line">h=dendrogram(z);</span><br><span class="line">set(h,&apos;Color&apos;,&apos;k&apos;,&apos;LineWidth&apos;,1.3)</span><br><span class="line">T=cluster(z,&apos;maxclust&apos;,6)</span><br><span class="line">for i=1:6</span><br><span class="line">    tm=find(T==i);</span><br><span class="line">    tm=reshape(tm,1,length(tm));</span><br><span class="line">    fprintf(&apos;第%d类的有%s\n&apos;,i,int2str(tm));</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>得到聚类图如下：<br><img src="https://img-blog.csdnimg.cn/20190825162817740.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>问题二：综合评价<br>综合评价方法推荐秩和比综合评价法。比较好上手。<br><img src="https://img-blog.csdnimg.cn/20190825163942667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20190825163956717.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190825164024696.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190825164046662.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019082516410065.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190825164111736.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>例题：为了研究辽宁等5省1991年城镇居民生活消费情况的分布规律，根据调查资料做类型分类，用最短距离做类间分类。数据如下：<br><img src="https://img-blog.csdnimg.cn/20190825164837559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>将每一个省区视为一个样品，先计算5个省区之间的欧式距离，用D0表示距离矩阵。<br><img src="https://img-blog.csdnimg.cn/20190825165035893.png" alt="在这里插入图片描述"><br>因此将3.4合并成为一类，为类6，替代了3，4两类。类6与剩余1，2，5类之间的距离表示为：<br><img src="https://img-blog.csdnimg.cn/2019082516522797.png" alt="在这里插入图片描述"><br>得到新矩阵：<br><img src="https://img-blog.csdnimg.cn/20190825165353424.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>合并类6类5得到新类7<br>类7与剩余的1，2之间的距离分别为：<br><img src="https://img-blog.csdnimg.cn/20190825165455817.png" alt="在这里插入图片描述"><br>得到新矩阵：<br><img src="https://img-blog.csdnimg.cn/20190825165522128.png" alt="在这里插入图片描述"><br>合并类1和类2，得到新类8<br>此时，我们有两个不同的类：类7和类8。<br>它们的最近距离：<br><img src="https://img-blog.csdnimg.cn/20190825165915300.png" alt="在这里插入图片描述"><h4 id="谱系聚类的matlab实现"><a href="#谱系聚类的matlab实现" class="headerlink" title="谱系聚类的matlab实现"></a>谱系聚类的matlab实现</h4></li>
+<li>（1）输入数据矩阵，注意行和列的实际意义。</li>
+<li>（2）计算各样品之间的距离（行？列？）<br>欧氏距离：d=pdist(A)    % 注意计算A中各行之间的距离；<br>绝对距离：d= pdist(A,’cityblock’);<br>明氏距离：d=pdist(A,’minkowski’,r);   % r要填上具体的实数；<br>方差加权距离：d= pdist(A,’seuclid’);<br>马氏距离：d= pdist(A,’mahal’);<br>挑选里面最高大上的性价比最高的来用。<br>注意：以上命令输出的结果是一个<strong>行向量</strong>，如果要得到一个距离矩阵，可以用命令：<br>D= squareform(d),如果要得到三角阵命令： D= tril(squareform(d1))<ul>
+<li>（3）选择不同的类间距离进行聚类。要清楚要什么才去选择。<br>最短距离：z1= linkage(d)     % 此处及以下的d都是（2）中算出的距离行向量<br>最长距离：z2= linkage(d,’complete’)<br>中间距离：z3= linkage(d,’centroid’)<br>重心距离：z4= linkage(d,’average’)<br>离差平方和：z5= linkage(d,’ward’)</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意</strong>：此时输出的结果是一个n-1行3列的矩阵，         每一行表示在某水平上合并为一类的序号；</p>
+<ul>
+<li>（4）作出谱系聚类图<br>H=dendrogram(z,d)         % 注意若样本少于30，可以省去d,否则必须填写.</li>
+<li>（5）根据分类数目，输出聚类结果<br>T=cluster(z,k) % 注意k是分类数目，z是（3）中的结果。Find(T==k0) % 找出属于第k0类的样品编号。<br>例题5：将例1 利用MATLAB软件进行聚类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">解：b=[7.9	39.77	8.49	12.94	19.27	11.05	2.04	13.29</span><br><span class="line">7.68	50.37	11.35	13.3	19.25	14.59	2.75	14.87</span><br><span class="line">9.42	27.93	8.2	8.14	16.17	9.42	1.55	9.76</span><br><span class="line">9.16	27.98	9.01	9.32	15.99	9.1	1.82	11.35</span><br><span class="line">10.06	28.64	10.52	10.05	16.18	8.39	1.96	10.81];</span><br><span class="line">欧氏距离：d1=pdist(b); %b中每行之间距离</span><br><span class="line">% 五种类间距离聚类</span><br><span class="line">z1=linkage(d1);   </span><br><span class="line">z2=linkage(d1,&apos;complete&apos;);</span><br><span class="line">z3=linkage(d1,&apos;average&apos;);</span><br><span class="line">z4=linkage(d1,&apos;centroid&apos;);</span><br><span class="line">z5=linkage(d1,&apos;ward&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>其中z1输出结果为：<br>z1 =<br>    3.0000    4.0000    2.2033<br>    6.0000    5.0000    2.2159<br>   1.0000    2.0000   11.6726<br>   8.0000    7.0000   12.7983  </p>
+<p>% 在2.2033的水平，G3,G4合成一类为G6<br>% 在2.2159的水平，G6,G5合成一类为G7<br>% 在11.6726的水平，G1,G2合成一类为G8<br> % 在12.7983的水平，G7,G8合成一类</p>
+<p> 作谱系聚类图：H= dendrogram(z1)<br> <img src="https://img-blog.csdnimg.cn/20190825171159973.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p> % 输出分类结果<br> T=cluster(z1,3)<br> 结果表明：若分为三类，则辽宁是一类，浙江是一类，河南、青海和甘肃是另一类。<br> 代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">b=[7.9	39.77	8.49	12.94	19.27	11.05	2.04	13.29</span><br><span class="line">7.68	50.37	11.35	13.3	19.25	14.59	2.75	14.87</span><br><span class="line">9.42	27.93	8.2	8.14	16.17	9.42	1.55	9.76</span><br><span class="line">9.16	27.98	9.01	9.32	15.99	9.1	1.82	11.35</span><br><span class="line">10.06	28.64	10.52	10.05	16.18	8.39	1.96	10.81];</span><br><span class="line"></span><br><span class="line">d1=pdist(b); %欧氏距离：b中每行之间距离</span><br><span class="line">% 五种类间距离聚类</span><br><span class="line">z1=linkage(d1);</span><br><span class="line">z2=linkage(d1,&apos;complete&apos;);</span><br><span class="line">z3=linkage(d1,&apos;average&apos;);</span><br><span class="line">z4=linkage(d1,&apos;centroid&apos;);</span><br><span class="line">z5=linkage(d1,&apos;ward&apos;);</span><br><span class="line">H= dendrogram(z1) %作谱系聚类图</span><br><span class="line">% 输出分类结果</span><br><span class="line">T=cluster(z1,3)</span><br><span class="line">% 结果表明：若分为三类，则辽宁是一类，浙江是一类，河南、青海和甘肃是另一类。</span><br></pre></td></tr></table></figure>
+
+<p>以上是样品之间是欧式距离，类间距离是最短距离聚类大的结果。<br>但是实际上呢。对样品之间的每一种距离，可以由五种不同的类间距离进行聚类。那么怎么去评测哪一种最好呢？<br><strong>为此我们可以去计算复合相关系数，若该系数越接近于1，则该聚类越理想。计算命令如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">R=cophenet(z,d)</span><br></pre></td></tr></table></figure>
+
+<p>其中，z 是用某种类间距离linkage后的结果，<br>d是样品之间的某种距离，想了解利用欧式距离聚类，哪种类间距离最好，可以计算五个复合相关系数，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">R=[cophenet(z1,d1),cophenet(z2,d1),</span><br><span class="line">cophenet(z3,d1),cophenet(z4,d1),</span><br><span class="line">cophenet(z5,d1)]</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：<br><img src="https://img-blog.csdnimg.cn/20190825200325185.png" alt="在这里插入图片描述"><br>由结果可以看出，由于0.8623最大，所以认为若样品之间采用欧式距离，则类间距离以中间距离最好，如果我们要找到最理想的分类方法。可以对每一种样品之间的距离，都计算上述的复合相关系数，都计算上述的复合相关系数，这样就可以找到最理想的样品距离与对应的类间距离。</p>
+<h4 id="4-3-快速聚类法"><a href="#4-3-快速聚类法" class="headerlink" title="4.3 快速聚类法"></a>4.3 快速聚类法</h4><p>  快速聚类法又称为动态聚类法，该方法首先将样品进行粗糙分类，然后依据样品间的距离按一定规则进行调整，直至不能调整为止.该方法适用于样品数量较大的数据集的聚类分析，但是需要事先给定聚类数目，此数目对最终聚类结果有很大影响，实际应用时要选择多个数目进行分类，然后找出合理的分类结果.<br>  4.3.1 快速聚类的步骤<br>  聚点是一批有代表性的样品，他的选择决定了初始分类，并对最终分类有很大影响，选择聚点之前要先确定聚类数k.<br>  <img src="https://img-blog.csdnimg.cn/20190825202205804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  <img src="https://img-blog.csdnimg.cn/20190825202219835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  ② 首先按照亚非洲、美洲、欧洲、大洋洲分为四类，以每一类的均值向量作为聚点.<br>  ③ 最小最大准则(a为原始数据矩阵）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  [m,n]=size(a);</span><br><span class="line">for i=1:m</span><br><span class="line">    for j=1:m</span><br><span class="line">    d(i,j)=[a(i,:)-a(j,:)]*[a(i,:)-a(j,:)]‘; %欧氏距离平方</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">d1=max(d);</span><br><span class="line">d2=sort(d1,&apos;descend&apos;);</span><br><span class="line">[d2,i1]=sort(d1,‘descend’); % i1前两位数字为初始聚点号码</span><br><span class="line">d3=max(min(setdiff(d(:,i1(1)),0)),min(setdiff(d(:,i1(2)),0)));</span><br><span class="line">t3=[find(d(:,i1(1))==d3),find(d(:,i1(2))==d3)];% c=[i1(1),i1(2),t3];</span><br><span class="line">c1=setdiff([1:13]&apos;,c);</span><br><span class="line">d4=max(min(d(c1,c)));</span><br><span class="line">t4=[find(d(:,i1(1))==d4),find(d(:,i1(2))==d4),find(d(:,t3)==d4)];</span><br></pre></td></tr></table></figure>
+
+<p>由此得到：美国、南非、日本、德国</p>
+<h4 id="快速聚类的步骤"><a href="#快速聚类的步骤" class="headerlink" title="快速聚类的步骤"></a>快速聚类的步骤</h4><p><img src="https://img-blog.csdnimg.cn/2019082520234244.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">% 初始聚类</span><br><span class="line">c2=setdiff(c1,t4);</span><br><span class="line">c3=[i1(1),i1(2),t3,t4];</span><br><span class="line">D=d(:,[i1(1),i1(2),t3,t4]);</span><br><span class="line">[D1,J1]=sort(D,2);</span><br><span class="line">for i=1:m</span><br><span class="line">    if D1(i)~=0</span><br><span class="line">        L1(i)=J1(i,1);</span><br><span class="line">    else</span><br><span class="line">        L1(i)=J1(i,2);</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"> q1=find(L1==1);q2=find(L1==2);q3=find(L1==3);q4=find(L1==4);</span><br><span class="line"> G1=a([i1(1),q1],:)</span><br><span class="line"> G2=a(setdiff([i1(2),q2],[i1(1),q1]),:)</span><br><span class="line"> G3=a(setdiff([t3,q3],[i1(1),i1(2),q1,q2]),:)</span><br><span class="line"> G4=a(setdiff([t4,q4],[i1(1),i1(2),t3,q3]),:)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190825202420883.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">% 二次聚点与分类</span><br><span class="line">m1=mean(G1);</span><br><span class="line">m2=G2;</span><br><span class="line">m3=mean(G3);</span><br><span class="line">m4=mean(G4);</span><br><span class="line">Q=dist([m1;m2;m3;m4],a&apos;);</span><br><span class="line">F1=sort(Q);</span><br><span class="line">[F1,U1]=sort(Q)</span><br><span class="line">e1=find(U1(1,:)==1),</span><br><span class="line">e2=find(U1(1,:)==2),</span><br><span class="line">e3=find(U1(1,:)==3),</span><br><span class="line">e4=find(U1(1,:)==4)</span><br></pre></td></tr></table></figure>
+
+<p>聚类结果如下：<br>巴西、印度、南非</p>
+<h4 id="类的个数的确定"><a href="#类的个数的确定" class="headerlink" title="类的个数的确定"></a>类的个数的确定</h4><p>由适当的阈值确定；<br>根据数据点的散布直观地确定类的个数；<br>根据统计量确定分类个数；<br>根据谱系图确定分类个数的准则：</p>
+<ul>
+<li>各类重心间的距离必须很大；</li>
+<li>类中保包含的元素不要太多；</li>
+<li>类的个数必须符合实际应用；</li>
+<li>如果采用几种不同的聚类方法处理，则在各种聚类图中应该发现相同的类。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+			
+			  
+
+
+
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>愿一起成长<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+				  
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+					  
+                    </div>
+                    
+				
+                    
+					
+					
+				
+                  </div>
+                </span>
+              </span>
+			 
+            </span>
+		<!-- 添加代码  -->
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- article.ejs自身代码-->
+<span id="busuanzi_container_page_pv">
+   		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	    </span>
+
+          </div>
+          </a>
+        </div>
+      
+	  
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/数据结构课设《职工管理系统》/" class="archive-article-date">
-  	<time datetime="2019-07-22T00:32:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/数据结构课设《职工管理系统》/">数据结构课设《职工管理系统》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数据结构 职工管理系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数学建模 聚类分析</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hongyonghan.github.io/post/数学建模之聚类分析/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+	  
+      <div class="clearfix">
+	  </div>
+    </div>
   </div>
 </article>
+
   
+<nav id="article-nav">
+  
+    <a href="/post/数学建模之粒子群算法详解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数学建模之粒子群（鸟群算法）算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/数学建模之优劣解距离法理论篇（综合评价）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数学建模之优劣解距离法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/面试题之String、StringBuffer、StringBuilder有什么区别/" class="archive-article-date">
-  	<time datetime="2019-07-21T14:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
+    <!--MOB SHARE BEGIN-->
+    <div class="-mob-share-ui-button -mob-share-open">分享</div>
+    <div class="-mob-share-ui" style="display: none">
+        <ul class="-mob-share-list">
+            <li class="-mob-share-weibo"><p>新浪微博</p></li>
+            <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+            <li class="-mob-share-qzone"><p>QQ空间</p></li>
+            <li class="-mob-share-qq"><p>QQ好友</p></li>
+            <li class="-mob-share-weixin"><p>微信</p></li>                        <li class="-mob-share-twitter"><p>Twitter</p></li>     
+            <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+            <li class="-mob-share-mingdao"><p>明道</p></li>            
+            <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+        </ul>
+    <div class="-mob-share-close">取消</div>
+</div>
+    <div class="-mob-share-ui-bg"></div>
+    <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey={{ theme.shareSDKappkey }}"></script>
+<!--MOB SHARE END-->
+
+					
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "sIwU88GIB3HAxXR2BqejDlep-gzGzoHsz",
+            app_key: "PBt9V2tROfVypmHjNmPz0eIS",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/面试题之String、StringBuffer、StringBuilder有什么区别/">面试题之String、StringBuffer、StringBuilder有什么区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">String StringBuffer StrigBuilder</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#聚类分析"><span class="toc-number">1.</span> <span class="toc-text">聚类分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#系统聚类分析的步骤"><span class="toc-number">2.</span> <span class="toc-text">系统聚类分析的步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#系统聚类分析"><span class="toc-number">3.</span> <span class="toc-text">系统聚类分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#聚类分析-1"><span class="toc-number">4.</span> <span class="toc-text">聚类分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#聚类分析种类"><span class="toc-number">5.</span> <span class="toc-text">聚类分析种类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#聚类分析基本思想："><span class="toc-number">6.</span> <span class="toc-text">聚类分析基本思想：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样品间的相似度量-距离"><span class="toc-number">7.</span> <span class="toc-text">样品间的相似度量-距离</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#一-常用距离的定义"><span class="toc-number">7.0.1.</span> <span class="toc-text">一 常用距离的定义</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量间的相似度量——相似系数"><span class="toc-number">8.</span> <span class="toc-text">变量间的相似度量——相似系数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#谱系聚类法"><span class="toc-number">9.</span> <span class="toc-text">谱系聚类法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类间距离"><span class="toc-number">10.</span> <span class="toc-text">类间距离</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类间距离的递推公式"><span class="toc-number">11.</span> <span class="toc-text">类间距离的递推公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#谱系聚类法的步骤"><span class="toc-number">12.</span> <span class="toc-text">谱系聚类法的步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#系统聚类分析的方法"><span class="toc-number">13.</span> <span class="toc-text">系统聚类分析的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#谱系聚类的matlab实现"><span class="toc-number">14.</span> <span class="toc-text">谱系聚类的matlab实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-快速聚类法"><span class="toc-number">15.</span> <span class="toc-text">4.3 快速聚类法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#快速聚类的步骤"><span class="toc-number">16.</span> <span class="toc-text">快速聚类的步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类的个数的确定"><span class="toc-number">17.</span> <span class="toc-text">类的个数的确定</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/JSP连接数据库实现注册登录/" class="archive-article-date">
-  	<time datetime="2019-07-21T14:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/JSP连接数据库实现注册登录/">JSP连接数据库实现注册登录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSP 注册 登录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -330,8 +709,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

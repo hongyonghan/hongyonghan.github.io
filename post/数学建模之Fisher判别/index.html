@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://hongyonghan.github.io">
-  <title>Archives: 2019/7 | hongyonghan</title>
+  <title>数学建模之Fisher判别 | hongyonghan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="山东科技大学17级学生">
-<meta name="keywords" content="机器学习 人工智能">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hongyonghan">
-<meta property="og:url" content="https://hongyonghan.github.io/archives/2019/07/index.html">
+  <meta name="description" content="理论，编程步骤和优缺点1.理论判别分析是用于判别个体所属群体的一种统计方法，判别分析的特点是根据已掌握的、历史上每个类别的若干样本的数据信息，总结出客观事物分类的规律性，建立判别公式和判别准则。然后，当遇到新的样本点时，只要根据总结出来的判别公式和判别准则，就能判别该样本点所属的类别。判别分析是一种应用性很强的统计数据分析方法。 Fisher判别（1）借助方差分析的思想构造一个线性判别函数：（2）">
+<meta name="keywords" content="数学建模  Fisher判别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模之Fisher判别">
+<meta property="og:url" content="https://hongyonghan.github.io/post/数学建模之Fisher判别/index.html">
 <meta property="og:site_name" content="hongyonghan">
-<meta property="og:description" content="山东科技大学17级学生">
+<meta property="og:description" content="理论，编程步骤和优缺点1.理论判别分析是用于判别个体所属群体的一种统计方法，判别分析的特点是根据已掌握的、历史上每个类别的若干样本的数据信息，总结出客观事物分类的规律性，建立判别公式和判别准则。然后，当遇到新的样本点时，只要根据总结出来的判别公式和判别准则，就能判别该样本点所属的类别。判别分析是一种应用性很强的统计数据分析方法。 Fisher判别（1）借助方差分析的思想构造一个线性判别函数：（2）">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-04T15:37:16.324Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hongyonghan">
-<meta name="twitter:description" content="山东科技大学17级学生">
+<meta name="twitter:title" content="数学建模之Fisher判别">
+<meta name="twitter:description" content="理论，编程步骤和优缺点1.理论判别分析是用于判别个体所属群体的一种统计方法，判别分析的特点是根据已掌握的、历史上每个类别的若干样本的数据信息，总结出客观事物分类的规律性，建立判别公式和判别准则。然后，当遇到新的样本点时，只要根据总结出来的判别公式和判别准则，就能判别该样本点所属的类别。判别分析是一种应用性很强的统计数据分析方法。 Fisher判别（1）借助方差分析的思想构造一个线性判别函数：（2）">
   
     <link rel="alternative" href="/atom.xml" title="hongyonghan" type="application/atom+xml">
   
@@ -174,136 +175,295 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数学建模之Fisher判别" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数学建模之Fisher判别
+    </h1>
+  
+
+        
+        <a href="/post/数学建模之Fisher判别/" class="archive-article-date">
+  	<time datetime="2019-09-03T17:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-04</time>
+</a>
+        
+	
+		 <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.7k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">7分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+		<!-- 添加代码 -->
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+	
+ 
+		
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>理论，编程步骤和优缺点</code></pre><p>1.理论<br>判别分析是用于判别个体所属群体的一种统计方法，判别分析的特点是根据已掌握的、历史上每个类别的若干样本的数据信息，总结出客观事物分类的规律性，建立判别公式和判别准则。然后，当遇到新的样本点时，只要根据总结出来的判别公式和判别准则，就能判别该样本点所属的类别。判别分析是一种应用性很强的统计数据分析方法。</p>
+<p>Fisher判别<br>（1）借助方差分析的思想构造一个线性判别函数：<br>（2）确定判别函数系数时要求使得总体之间区别最大，而使每个总体内部的离差最小。<br>（3）从几何的角度看，判别函数就是p维向量X在某种方向上的投影。使得变换后的数据同类别的点“尽可能聚在一起”，不同类别的点“尽可能分离”，以此达到分类的目的。<br>           两类Fisher判别示意图 </p>
+<p>（1）如果有多个类别， Fisher判别可能需要两个或者更多的判别函数才能完成分类。<br>（2）一般来说判别函数的个数等于分类的个数减一。<br>（3）得到判别函数后，计算待判样品的判别函数值，根据判别函数的值计算待判样品到各类的重心的距离，从而完成分类。<br>2.编程步骤</p>
+<p>① 把来自两类的训练样本集分成和两个子集和。<br>② 由，，计算。<br>③ 由计算各类的类内离散度矩阵，。<br>④ 计算类内总离散度矩阵。<br>⑤ 计算的逆矩阵。<br>⑥ 由求解。<br>3.优点<br>（1）一般对于线性可分的样本，总能找到一个投影方向，使得降维后的样本仍然线性可分，而且可分性更好即不同类别的样本之间的距离竟可能的远，同一类别的尽可能的集中分布。<br>（2）Fisher方法可以直接求解法向量。<br>（3）Fisher的线性判别不仅适用于确定性的模式分类器的训练，而且对于随机的模机也是适用的，Fisher还可以推广到多类问题中去。<br>缺点<br>（1）如果M1=M2,W=0.则这样的样本线性不可分；M1！=M2，未必线性可分；SW不可逆，未必不可分。<br>（2）对于线性不可分的情况，Fisher方法无法确定分类。<br>程序如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">clear% w1类训练样本，10组，每组为行向量。</span><br><span class="line">w1=[-0.4,0.58,0.089;-0.31,0.27,-0.04;-0.38,0.055,-0.035;-0.15,0.53,0.011;-0.35,0.47,0.034;0.17,0.69,0.1;-0.011,0.55,-0.18;-0.27,0.61,0.12;-0.065,0.49,0.0012;-0.12,0.054,-0.063]; </span><br><span class="line">% w2类训练样本，10组，每组为行向量。</span><br><span class="line">w2=[0.83,1.6,-0.014;1.1,1.6,0.48;-0.44,-0.41,0.32;0.047,-0.45,1.4;0.28,0.35,3.1;-0.39,-0.48,0.11;0.34,-0.079,0.14;-0.3,-0.22,2.2;1.1,1.2,-0.46;0.18,-0.11,-0.49]; </span><br><span class="line">%w1=load(&apos;xxx1.txt&apos;);</span><br><span class="line">%w2=load(&apos;xxx2.txt&apos;);</span><br><span class="line">xx1=[-0.7,0.58,0.089]&apos;;  </span><br><span class="line">%测试数据xx1，为列向量。</span><br><span class="line">xx2=[0.047,-0.4,1.04]&apos;;  </span><br><span class="line">%测试数据xx2，为列向量。</span><br><span class="line">m1=mean(w1,1)&apos;;  </span><br><span class="line">% w1类样本均值向量，为列向量</span><br><span class="line">sw1=cov(w1,1);   </span><br><span class="line">% w1类样本类内离散度矩阵</span><br><span class="line">m2=mean(w2,1)&apos;;  </span><br><span class="line">% w2类样本均值向量，为列向量</span><br><span class="line">sw2=cov(w2,1);   </span><br><span class="line">% w2类样本类内离散度矩阵</span><br><span class="line">sw=sw1+sw2;      </span><br><span class="line">%总类内离散度矩阵</span><br><span class="line">w= inv(sw)*(m1-m2);  </span><br><span class="line">%投影方向</span><br><span class="line">y0=(w&apos;*m1+w&apos;*m2)/2;  </span><br><span class="line">%阈值y0</span><br><span class="line">figure(1) </span><br><span class="line">for i=1:10  </span><br><span class="line">    plot3(w1(i,1),w1(i,2),w1(i,3),&apos;g+&apos;) </span><br><span class="line">    hold on</span><br><span class="line">    plot3(w2(i,1),w2(i,2),w2(i,3),&apos;ro&apos;) </span><br><span class="line">end</span><br><span class="line">xlabel(&apos;x轴&apos;); </span><br><span class="line">ylabel(&apos;y&apos;);  </span><br><span class="line">title(&apos;原始训练数据w1,w2三维分布图&apos;); </span><br><span class="line">z1=w&apos;*w1&apos;; </span><br><span class="line">z2=w&apos;*w2&apos;; </span><br><span class="line">figure(2) </span><br><span class="line">for i=1:10  </span><br><span class="line">    plot3(z1(i)*w(1),z1(i)*w(2),z1(i)*w(3),&apos;g+&apos;) </span><br><span class="line">    hold on</span><br><span class="line">    plot3(z2(i)*w(1),z2(i)*w(2),z2(i)*w(3),&apos;ro&apos;)  </span><br><span class="line">end</span><br><span class="line">xlabel(&apos;x轴&apos;); </span><br><span class="line">ylabel(&apos;y轴&apos;);  </span><br><span class="line">title(&apos;训练数据w1,w2线性分类效果图&apos;); </span><br><span class="line">hold off</span><br><span class="line">y1=w&apos;*xx1; </span><br><span class="line">if y1&gt;y0  </span><br><span class="line">   fprintf(&apos;测试数据xx1属于w1类\n&apos;); </span><br><span class="line">else</span><br><span class="line">   fprintf(&apos;测试数据xx1属于w2类\n&apos;); </span><br><span class="line">end</span><br><span class="line">y2=w&apos;*xx2; </span><br><span class="line">if y2&gt;y0  </span><br><span class="line">   fprintf(&apos;测试数xx2属于w1类\n&apos;); </span><br><span class="line">else</span><br><span class="line">   fprintf(&apos;测试数据xx2属于w2类\n&apos;); </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">clear   </span><br><span class="line">% w1类训练样本，10组，每组为行向量。</span><br><span class="line"></span><br><span class="line">w1=[-0.4,0.58,0.089;-0.31,0.27,-0.04;-0.38,0.055,-0.035;-0.15,0.53,0.011;-0.35,0.47,0.034;0.17,0.69,0.1;-0.011,0.55,0.18;-0.27,0.61,0.12;-0.065,0.49,0.0012;-0.12,0.054,-0.063]; </span><br><span class="line"></span><br><span class="line">% w2类训练样本，10组，每组为行向量。</span><br><span class="line">w2=[0.83,1.6,-0.014;1.1,1.6,0.48;-0.44,-0.41,0.32;0.047,-0.45,1.4;0.28,0.35,3.1; -0.39,-0.48,0.11;0.34,-0.079,0.14;-0.3,-0.22,2.2;1.1,1.2,-0.46;0.18,-0.11,-0.49]; </span><br><span class="line">% w3为待分类样本数据，10组，每组为列向量。</span><br><span class="line">w3=[1.58,2.32,-5.8;0.67,1.58,-4.78;1.04,1.01,-3.63;-1.49,2.18,-3.39;-0.41,1.21,-4.73;1.39,3.61,2.87;1.2,1.4,-1.89;-0.92,1.44,-3.22;0.45,1.33,-4.38;-0.76,0.84,-1.96]&apos;; </span><br><span class="line">m1=mean(w1,1)&apos;;  </span><br><span class="line">% w1类样本均值向量，为列向量</span><br><span class="line">sw1=cov(w1,1);   </span><br><span class="line">% w1类样本类内离散度矩阵</span><br><span class="line">m2=mean(w2,1)&apos;;  </span><br><span class="line">% w2类样本均值向量，为列向量</span><br><span class="line">sw2=cov(w2,1);   </span><br><span class="line">% w2类样本类内离散度矩阵</span><br><span class="line">sw=sw1+sw2;      </span><br><span class="line">%总类内离散度矩阵</span><br><span class="line">w= inv(sw)*(m1-m2);  </span><br><span class="line">%投影方向</span><br><span class="line">y0=(w&apos;*m1+w&apos;*m2)/2  </span><br><span class="line">%阈值y0</span><br><span class="line">% w1,w2,w3原始数据三维分布图</span><br><span class="line">figure(3) </span><br><span class="line">for i=1:10  </span><br><span class="line">    plot3(w1(i,1),w1(i,2),w1(i,3),&apos;g+&apos;) </span><br><span class="line">    hold on</span><br><span class="line">    plot3(w2(i,1),w2(i,2),w2(i,3),&apos;ro&apos;) </span><br><span class="line">    hold on</span><br><span class="line">    plot3(w3(1,i),w3(2,i),w3(3,i),&apos;bp&apos;) </span><br><span class="line">end</span><br><span class="line">xlabel(&apos;x轴&apos;); </span><br><span class="line">ylabel(&apos;y轴&apos;);  </span><br><span class="line">title(&apos;训练w1,w2/样本w3原始数据三维分布图&apos;);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">% w1,w2,w3数据线性投影分类效果图</span><br><span class="line">z1=w&apos;*w1&apos;; </span><br><span class="line">z2=w&apos;*w2&apos;; </span><br><span class="line">z3=w&apos;*w3; </span><br><span class="line">figure(4) </span><br><span class="line">for i=1:10  </span><br><span class="line">    plot3(z1(i)*w(1),z1(i)*w(2),z1(i)*w(3),&apos;g+&apos;) </span><br><span class="line">    hold on</span><br><span class="line">    plot3(z2(i)*w(1),z2(i)*w(2),z2(i)*w(3),&apos;ro&apos;) </span><br><span class="line">    hold on</span><br><span class="line">    plot3(z3(i)*w(1),z3(i)*w(2),z3(i)*w(3),&apos;bp&apos;) </span><br><span class="line">end</span><br><span class="line">xlabel(&apos;x轴&apos;); </span><br><span class="line">ylabel(&apos;y轴&apos;);  </span><br><span class="line">title(&apos;训练w1,w2/样本w3数据线性投影分类效果图&apos;); </span><br><span class="line">hold off</span><br><span class="line">for i=1:10  </span><br><span class="line">    y(i)=w&apos;*w3(:,i); </span><br><span class="line">      if  y(i)&gt;y0  </span><br><span class="line">          fprintf(&apos;样本数据%d属于w1类\n&apos;,i); </span><br><span class="line">      else</span><br><span class="line">          fprintf(&apos;样本数据%d属于w2类\n&apos;,i);</span><br><span class="line">      end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+			
+			  
+
+
+
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>愿一起成长<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+				  
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+					  
+                    </div>
+                    
+				
+                    
+					
+					
+				
+                  </div>
+                </span>
+              </span>
+			 
+            </span>
+		<!-- 添加代码  -->
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- article.ejs自身代码-->
+<span id="busuanzi_container_page_pv">
+   		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	    </span>
+
+          </div>
+          </a>
+        </div>
+      
+	  
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/数据结构课设《职工管理系统》/" class="archive-article-date">
-  	<time datetime="2019-07-22T00:32:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/数据结构课设《职工管理系统》/">数据结构课设《职工管理系统》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数据结构 职工管理系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数学建模  Fisher判别</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hongyonghan.github.io/post/数学建模之Fisher判别/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+	  
+      <div class="clearfix">
+	  </div>
+    </div>
   </div>
 </article>
+
   
+<nav id="article-nav">
+  
+  
+    <a href="/post/数学建模之蒙特卡罗方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数学建模之蒙特卡罗方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/面试题之String、StringBuffer、StringBuilder有什么区别/" class="archive-article-date">
-  	<time datetime="2019-07-21T14:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
+    <!--MOB SHARE BEGIN-->
+    <div class="-mob-share-ui-button -mob-share-open">分享</div>
+    <div class="-mob-share-ui" style="display: none">
+        <ul class="-mob-share-list">
+            <li class="-mob-share-weibo"><p>新浪微博</p></li>
+            <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+            <li class="-mob-share-qzone"><p>QQ空间</p></li>
+            <li class="-mob-share-qq"><p>QQ好友</p></li>
+            <li class="-mob-share-weixin"><p>微信</p></li>                        <li class="-mob-share-twitter"><p>Twitter</p></li>     
+            <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+            <li class="-mob-share-mingdao"><p>明道</p></li>            
+            <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+        </ul>
+    <div class="-mob-share-close">取消</div>
+</div>
+    <div class="-mob-share-ui-bg"></div>
+    <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey={{ theme.shareSDKappkey }}"></script>
+<!--MOB SHARE END-->
+
+					
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "sIwU88GIB3HAxXR2BqejDlep-gzGzoHsz",
+            app_key: "PBt9V2tROfVypmHjNmPz0eIS",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/面试题之String、StringBuffer、StringBuilder有什么区别/">面试题之String、StringBuffer、StringBuilder有什么区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">String StringBuffer StrigBuilder</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/JSP连接数据库实现注册登录/" class="archive-article-date">
-  	<time datetime="2019-07-21T14:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/JSP连接数据库实现注册登录/">JSP连接数据库实现注册登录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSP 注册 登录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -330,8 +490,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

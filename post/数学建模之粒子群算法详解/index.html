@@ -6,19 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://hongyonghan.github.io">
-  <title>Archives: 2019/7 | hongyonghan</title>
+  <title>数学建模之粒子群（鸟群算法）算法 | hongyonghan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="山东科技大学17级学生">
-<meta name="keywords" content="机器学习 人工智能">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hongyonghan">
-<meta property="og:url" content="https://hongyonghan.github.io/archives/2019/07/index.html">
+  <meta name="description" content="粒子群（鸟群算法）算法是典型的寻优算法。分为全局最优和局部最优。 基本思想：主要模拟自然界生物捕食的策略，群体迭代，粒子在解空间追随最优的例子进行搜索。是智能算法的一种。算法特点：  简单易行。 收敛速度快。 设置参数少。一般的限制条件是当达到限制步数或者达到相应的准确度的时，粒子就会停止移动。设想一个场景：一群鸟在随机搜索食物。已知（假设）： 1.在这块区域里只有一块食物。 2.所有的鸟都不知道">
+<meta name="keywords" content="数学建模 粒子群（鸟群算法）算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模之粒子群（鸟群算法）算法">
+<meta property="og:url" content="https://hongyonghan.github.io/post/数学建模之粒子群算法详解/index.html">
 <meta property="og:site_name" content="hongyonghan">
-<meta property="og:description" content="山东科技大学17级学生">
+<meta property="og:description" content="粒子群（鸟群算法）算法是典型的寻优算法。分为全局最优和局部最优。 基本思想：主要模拟自然界生物捕食的策略，群体迭代，粒子在解空间追随最优的例子进行搜索。是智能算法的一种。算法特点：  简单易行。 收敛速度快。 设置参数少。一般的限制条件是当达到限制步数或者达到相应的准确度的时，粒子就会停止移动。设想一个场景：一群鸟在随机搜索食物。已知（假设）： 1.在这块区域里只有一块食物。 2.所有的鸟都不知道">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190826224328321.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190826224828249.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190826224914715.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019082622565076.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190827211744116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190827213118570.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190827213234343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190828212448221.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190828214746764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190828215032700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831153209848.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019083115471296.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831154544634.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831154607455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831155819980.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831160932151.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831190206677.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831190231923.png">
+<meta property="og:updated_time" content="2019-09-04T15:34:18.232Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hongyonghan">
-<meta name="twitter:description" content="山东科技大学17级学生">
+<meta name="twitter:title" content="数学建模之粒子群（鸟群算法）算法">
+<meta name="twitter:description" content="粒子群（鸟群算法）算法是典型的寻优算法。分为全局最优和局部最优。 基本思想：主要模拟自然界生物捕食的策略，群体迭代，粒子在解空间追随最优的例子进行搜索。是智能算法的一种。算法特点：  简单易行。 收敛速度快。 设置参数少。一般的限制条件是当达到限制步数或者达到相应的准确度的时，粒子就会停止移动。设想一个场景：一群鸟在随机搜索食物。已知（假设）： 1.在这块区域里只有一块食物。 2.所有的鸟都不知道">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190826224328321.png">
   
     <link rel="alternative" href="/atom.xml" title="hongyonghan" type="application/atom+xml">
   
@@ -174,136 +194,340 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数学建模之粒子群算法详解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数学建模之粒子群（鸟群算法）算法
+    </h1>
+  
+
+        
+        <a href="/post/数学建模之粒子群算法详解/" class="archive-article-date">
+  	<time datetime="2019-09-03T16:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-04</time>
+</a>
+        
+	
+		 <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">2.8k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">9分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+		<!-- 添加代码 -->
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+	
+ 
+		
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>粒子群（鸟群算法）算法是典型的寻优算法。分为<strong>全局最优和局部最优。 基本思想</strong>：主要模拟自然界生物捕食的策略，群体迭代，粒子在解空间追随最优的例子进行搜索。是智能算法的一种。<br>算法特点：</p>
+<ol>
+<li>简单易行。</li>
+<li>收敛速度快。</li>
+<li>设置参数少。<br>一般的限制条件是当达到限制步数或者达到相应的准确度的时，粒子就会停止移动。<br>设想一个场景：一群鸟在随机搜索食物。<br>已知（假设）：</li>
+<li>1.在这块区域里只有一块食物。</li>
+<li>2.所有的鸟都不知道食物在哪。</li>
+<li>3.但他们能感受到当前的位置离食物还有多远。<br>问题是：找到食物的最优策略是什么。<br>搜索目前离食物最近的鸟的周围区域，根据自己飞行经验判断食物的所在。<br><strong>PSO的基础:信息的社会共享</strong><h4 id="算法介绍"><a href="#算法介绍" class="headerlink" title="算法介绍"></a>算法介绍</h4></li>
+<li>每个寻优的问题解都被想象成一只鸟，称为粒子。所有粒子都在一个D维空间进行搜索。</li>
+<li>所有粒子都由一个fitness function 确定适应值以判断目前的位置好坏。</li>
+<li>每一个粒子必须赋予记忆功能，能记住所搜寻到的最佳位置。</li>
+<li>每一个粒子还有一个速度以决定飞行的距离和方向。这个速度根据它本身的飞行经验以及同伴的飞行经验进行动态的调整。<br>D维空间中，有N个粒子；<br>粒子i位置：xi=(xi1,xi2,…xiD)，将xi代入适应函数f(xi)求适应值；<br>粒子i速度：vi=(vi1,vi2,…viD)<br>粒子i个体经历过的最好位置：pbesti=(pi1,pi2,…piD)<br><img src="https://img-blog.csdnimg.cn/20190826224328321.png" alt="在这里插入图片描述"><br>以上规定位置变化的界限和速度变化的界限。速度过快或者过慢都会对粒子寻优产生影响。</li>
+<li>粒子i的第d维速度更新公式：<br><img src="https://img-blog.csdnimg.cn/20190826224828249.png" alt="在这里插入图片描述"></li>
+<li>粒子i的第d维位置更新公式：<br><img src="https://img-blog.csdnimg.cn/20190826224914715.png" alt="在这里插入图片描述"><br>变量含义：<br>vid ^k    —第k次迭代粒子i飞行速度矢量的第d维分量<br>xid^k  —第k次迭代粒子i位置矢量的第d维分量<br>c1,c2—加速度常数，调节学习最大步长<br>r1,r2—两个随机函数，取值范围[0，1]，以增加搜索随机性<br>w —惯性权重，非负数，调节对解空间的搜索范围<br><img src="https://img-blog.csdnimg.cn/2019082622565076.png" alt="在这里插入图片描述"><br>粒子速度更新公式包含三部分：<br>第一部分：粒子先前的速度。<br>第二部分：认知部分，表示粒子本身的思考，可以理解为粒子i当前位置与自己最好位置之间的距离。<br>第三部分：社会部分，表示粒子间的信息共享与合作，可以理解为粒子i当前位置与群体最好<br>算法基本流程： </li>
+</ol>
+<ul>
+<li>1.初始化粒子群体（群体规模为n），包括随机位置和速度。<ul>
+<li>2.根据fitness function ，评价每个粒子的适应度。</li>
+<li>3.对每个粒子，将其当前适应值与其个体历史最佳位置（pbest）对应的适应值做<br>比较，如果当前的适应值更高，则将用当前位置更新历史最佳位置pbest。</li>
+</ul>
+</li>
+<li>4.对每个粒子，将其当前适应值与全局最佳位置（gbest）对应的适应值做比较，</li>
+<li>5.根据公式更新每个粒子的速度与位置。</li>
+<li>6.如未满足结束条件，则返回步骤2,通常算法达到最大迭代次数     或者最佳适应度值的增量小于某个给定的阈值时算法停止。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190827211744116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>粒子群算法的构成要素：</p>
+<ul>
+<li>群体大小m:m是一个整数。<br>如果m很小，陷入局部最优解的可能性很大。<br>如果m很大，PSO的优化能力很好，当群体数目增长到一定水平时候，再整长就不再有显著的作用。</li>
+<li>权重因子：惯性因子 W 学习因子 c1、c2</li>
+<li><img src="https://img-blog.csdnimg.cn/20190827213118570.png" alt="在这里插入图片描述"></li>
+<li>粒子速度的更新主要由以下三部分组成。<br><img src="https://img-blog.csdnimg.cn/20190827213234343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果惯性因子w=1 则是基本粒子群算法 如果w=0的话，失去对粒子本身的速度的记忆。<br>如果c1=0,就是无私型粒子群算法,缺点是：只有社会，没有自我，迅速丧失群体多样性，容易陷入局部最优解而无法跳出。太依赖群体了。<br>如果学习因子c2=0,那么是自我认知型粒子群算法。不管社会群体。 完全没有信息的社会共享，导致算法收敛速度缓慢。<br>如果c1、c2都不为0，称为完全型粒子群算法。完全型粒子群算法更容易保持收敛速度和搜索效果的均衡，是较好的选择。<h4 id="粒子群算法的构成要素-最大速度"><a href="#粒子群算法的构成要素-最大速度" class="headerlink" title="粒子群算法的构成要素-最大速度"></a>粒子群算法的构成要素-最大速度</h4>作用：<br>在于维护算法的探索能力和开发能力的平衡。Vm较大时，探索能力增强，但是容易飞过最优解。Vm较小的时候，开发能力增强，但是容易陷入局部最优解。Vm一般设为每维变化范围的10%-20%。<h4 id="粒子群邻域算法的构成要素-邻域的拓扑结构"><a href="#粒子群邻域算法的构成要素-邻域的拓扑结构" class="headerlink" title="粒子群邻域算法的构成要素-邻域的拓扑结构"></a>粒子群邻域算法的构成要素-邻域的拓扑结构</h4>粒子群算法的邻域拓扑结构包括两种：<br>一种是将群体内的所有个体都作为粒子的邻域，另一种是只将群体中的部分个体作为粒子的邻域。<br>邻域拓扑结构决定了群体历史的最优位置。由此，将粒子群算法分为<strong>全局粒子群算法和局部粒子群算法。</strong><br>全局粒子群算法包括：<ul>
+<li>1粒子自己历史最优值。</li>
+<li>2粒子群体的全局最优值（最优值由全部粒子决定）<br>局部粒子群算法包括</li>
+<li>1.粒子自己历史最优值</li>
+<li>2.粒子邻域内粒子的最优值（部分个体粒子来决定）。<br>邻域随迭代次数的增加线性变大，最后邻域扩展到整个粒子群。<br>经过实践证明： <strong>全局版本的粒子群算法收敛速度快，但是容易陷入局部最优。局部版本的粒子群算法收敛速度慢，但是很难陷入局部最优。现在的粒子群算法大都在收敛速度与摆脱局部最优这两个方面下功夫。但是这两个方面存在着矛盾。只能是看如何更好折中。</strong><h4 id="粒子群算法的构成要素-停止准则"><a href="#粒子群算法的构成要素-停止准则" class="headerlink" title="粒子群算法的构成要素-停止准则"></a>粒子群算法的构成要素-停止准则</h4>停止准则一般有以下两种：<br>最大迭代步数<br>可接受的满意解<h4 id="粒子群算法的构成要素-粒子空间的初始化。"><a href="#粒子群算法的构成要素-粒子空间的初始化。" class="headerlink" title="粒子群算法的构成要素-粒子空间的初始化。"></a>粒子群算法的构成要素-粒子空间的初始化。</h4>较好地选择粒子的初始化空间，将大大缩短收敛时间。初始化空间根据具体问题的不同而不同。也就是说，这是问题依赖的。<br>总结：从上面的介绍可以看出，粒子群算法与其他现代优化方法相比的一个明显特色就是<strong>需要修改的参数很少</strong>。相对来说，<strong>惯性因子和邻域定义</strong>较为重要。这些关键参数的设置对算法的精度和效率有显著影响。<br>例题：<br><img src="https://img-blog.csdnimg.cn/20190828212448221.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>题目来看主要是找最小值，即最优解的问题。<br>种群大小：即算法中粒子的数量，取m=5<br>编码：因为问题的维数是4，所以每个粒子的位置和速度均为4维的实数向量。<br>速度设定为Vmax=60，因为x属于-30-30之间。一共是60个空间。所以设置速度为60.<br><img src="https://img-blog.csdnimg.cn/20190828214746764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190828215032700.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190831153209848.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019083115471296.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20190831154544634.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190831154607455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>粒子群算法流程：<br>第一步：在初始化范围内，对粒子群进行随机初始化，包括随机位置和速度。<br>第二步：计算每个粒子的适应值。<br>第三步：更新粒子个体的历史最优位置。<br>第四步：更新粒子群体的历史最优位置。<br>第五步：更新粒子的速度和位置，<br><img src="https://img-blog.csdnimg.cn/20190831155819980.png" alt="在这里插入图片描述"><br>第六步：如果没有达到终止条件，转第二步。<h4 id="惯性权重"><a href="#惯性权重" class="headerlink" title="惯性权重"></a>惯性权重</h4></li>
+</ul>
+</li>
+</ul>
+<p>用动态调整惯性权重来平衡收敛的全局性和收敛速度，该算法被称为标准PSO算法。<br>    惯性权重w描述粒子上一代速度对当前代速度的影响。w值较大，全局寻优能力强，局部寻优能力弱。反之，则局部寻优能力强。当问题空间较大时，为了在搜索速度和搜索精度之间达到平衡，通常的做法是使算法在前期有较高的全局搜索能力以得到合适的种子，而在后期有较高的局部搜索能力以提高收敛精度，所以w不宜为一个固定的常数。<br>    线性递减权重：<br><img src="https://img-blog.csdnimg.cn/20190831160932151.png" alt="在这里插入图片描述"><br>较大的w有较好的全局收敛能力，较小的w则有较强的局部收敛能力。因此，随着迭代次数的增加，惯性权重w应该不断减小，从而使得粒子群算法在初期具有较强的全局收敛能力，而晚期具有较强的局部收敛能力。<br> 收缩因子法改进粒子群算法：<br> 引入收缩因子来保证算法的收敛性。<br> 速度更新公式为：<br> <img src="https://img-blog.csdnimg.cn/20190831190206677.png" alt="在这里插入图片描述"><br>  其中，收缩因子K为受φ1 φ2 限制的w。φ1 φ2是需要预先设定的模型<br>参数<br><img src="https://img-blog.csdnimg.cn/20190831190231923.png" alt="在这里插入图片描述"><br>    收缩因子法控制系统行为最终收敛，且可以有效搜索不同区域，该法能得到较高质量的解。<br>PSO应用面：<br>PSO应用包括系统设计，多目标优化，分类 （分类精度达到最大值），模式识别，调度（调度时间最少），信号处理，决策。具体应用为：模糊控制器设计，车间作业调度，机器人实时路径规划，自动目标检测，时频分析。<br>他的中心的思想为求解函数的最大值最小值。就是转化成结果的最大值最小值。<br>PSO存在的问题：</p>
+<ul>
+<li>一种新兴的优化算法，其数学基础薄弱，在收敛性理论、计算性能、实现技术和参数的设置等方面缺乏严密的数学基础，其应用大多数仍然依靠经验和实验。</li>
+<li>PSO算法的理论研究：纵观PSO的研究成果，大部分研究都集中在算法的设计上，对<br>算法的性能、收敛性、收敛速度、参数选取及参数的鲁棒性等理论性的研究则很少，偶有一些理论研究，但仅仅局限在对算法的参数、状态及概念等方面，且理论分析的内容和深度都很浅，因此理论研究大大滞后于PSO在工程中的应用。</li>
+<li>利用不同问题的特点设计出相应的有效算法，应注重高效的算法开发，提出合理的核心更新公式以及有效的均衡全局搜索和局部改进的策略。尤其要注重把PSO与其他算法，如进化算法、模糊逻辑、生物智能以及混沌等方法或策略相结合，来解决<strong>PSO易陷入局部最优的问题</strong></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+			
+			  
+
+
+
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>愿一起成长<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+				  
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+					  
+                    </div>
+                    
+				
+                    
+					
+					
+				
+                  </div>
+                </span>
+              </span>
+			 
+            </span>
+		<!-- 添加代码  -->
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- article.ejs自身代码-->
+<span id="busuanzi_container_page_pv">
+   		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	    </span>
+
+          </div>
+          </a>
+        </div>
+      
+	  
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/数据结构课设《职工管理系统》/" class="archive-article-date">
-  	<time datetime="2019-07-22T00:32:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/数据结构课设《职工管理系统》/">数据结构课设《职工管理系统》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数据结构 职工管理系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数学建模 粒子群（鸟群算法）算法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hongyonghan.github.io/post/数学建模之粒子群算法详解/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+	  
+      <div class="clearfix">
+	  </div>
+    </div>
   </div>
 </article>
+
   
+<nav id="article-nav">
+  
+    <a href="/post/数学建模之蒙特卡罗方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数学建模之蒙特卡罗方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/数学建模之聚类分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数学建模之聚类分析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/面试题之String、StringBuffer、StringBuilder有什么区别/" class="archive-article-date">
-  	<time datetime="2019-07-21T14:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
+    <!--MOB SHARE BEGIN-->
+    <div class="-mob-share-ui-button -mob-share-open">分享</div>
+    <div class="-mob-share-ui" style="display: none">
+        <ul class="-mob-share-list">
+            <li class="-mob-share-weibo"><p>新浪微博</p></li>
+            <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+            <li class="-mob-share-qzone"><p>QQ空间</p></li>
+            <li class="-mob-share-qq"><p>QQ好友</p></li>
+            <li class="-mob-share-weixin"><p>微信</p></li>                        <li class="-mob-share-twitter"><p>Twitter</p></li>     
+            <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+            <li class="-mob-share-mingdao"><p>明道</p></li>            
+            <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+        </ul>
+    <div class="-mob-share-close">取消</div>
+</div>
+    <div class="-mob-share-ui-bg"></div>
+    <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey={{ theme.shareSDKappkey }}"></script>
+<!--MOB SHARE END-->
+
+					
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "sIwU88GIB3HAxXR2BqejDlep-gzGzoHsz",
+            app_key: "PBt9V2tROfVypmHjNmPz0eIS",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/面试题之String、StringBuffer、StringBuilder有什么区别/">面试题之String、StringBuffer、StringBuilder有什么区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">String StringBuffer StrigBuilder</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#算法介绍"><span class="toc-number">1.</span> <span class="toc-text">算法介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#粒子群算法的构成要素-最大速度"><span class="toc-number">2.</span> <span class="toc-text">粒子群算法的构成要素-最大速度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#粒子群邻域算法的构成要素-邻域的拓扑结构"><span class="toc-number">3.</span> <span class="toc-text">粒子群邻域算法的构成要素-邻域的拓扑结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#粒子群算法的构成要素-停止准则"><span class="toc-number">4.</span> <span class="toc-text">粒子群算法的构成要素-停止准则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#粒子群算法的构成要素-粒子空间的初始化。"><span class="toc-number">5.</span> <span class="toc-text">粒子群算法的构成要素-粒子空间的初始化。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#惯性权重"><span class="toc-number">6.</span> <span class="toc-text">惯性权重</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/JSP连接数据库实现注册登录/" class="archive-article-date">
-  	<time datetime="2019-07-21T14:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/JSP连接数据库实现注册登录/">JSP连接数据库实现注册登录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSP 注册 登录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -330,8 +554,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

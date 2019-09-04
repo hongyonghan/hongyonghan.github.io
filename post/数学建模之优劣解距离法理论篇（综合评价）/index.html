@@ -6,19 +6,64 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://hongyonghan.github.io">
-  <title>Archives: 2019/7 | hongyonghan</title>
+  <title>数学建模之优劣解距离法 | hongyonghan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="山东科技大学17级学生">
-<meta name="keywords" content="机器学习 人工智能">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hongyonghan">
-<meta property="og:url" content="https://hongyonghan.github.io/archives/2019/07/index.html">
+  <meta name="description" content="TOPSIS称为优劣解距离法。是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。首先分析层次分析法地一些局限性：（1）评价的决策层不能太多，太多的话n会很大，判断矩阵和一致矩阵地差异可能会很大。平均随机一致性指标R1的表格中n最多是15.（2）如果决策层中的指标的数据是已知的，那么我们如何利用这些数据来使得评价更加准确呢？*一个栗子 *小明宿舍共有四名同学">
+<meta name="keywords" content="优劣解距离法 数学建模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模之优劣解距离法">
+<meta property="og:url" content="https://hongyonghan.github.io/post/数学建模之优劣解距离法理论篇（综合评价）/index.html">
 <meta property="og:site_name" content="hongyonghan">
-<meta property="og:description" content="山东科技大学17级学生">
+<meta property="og:description" content="TOPSIS称为优劣解距离法。是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。首先分析层次分析法地一些局限性：（1）评价的决策层不能太多，太多的话n会很大，判断矩阵和一致矩阵地差异可能会很大。平均随机一致性指标R1的表格中n最多是15.（2）如果决策层中的指标的数据是已知的，那么我们如何利用这些数据来使得评价更加准确呢？*一个栗子 *小明宿舍共有四名同学">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831202904314.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831203107385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831203346475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831203703719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831203944387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831204055624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831204526888.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831204932752.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831205634712.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019083120575856.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831211026982.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831213615787.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831214052614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831214116558.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831214319901.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831214607659.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831214740424.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831220127646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831220749914.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831225023606.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831225604368.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831225620422.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831225639320.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831225654105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190831230405772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190901102310374.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190901102857660.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903152705256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903153204269.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903153733356.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903153745212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903153912352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903153939495.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903154208899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903154620315.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019090315464965.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903155045349.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903155209839.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019090315554068.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903162124979.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903162422414.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903162634572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190903162724665.png">
+<meta property="og:updated_time" content="2019-09-04T15:33:07.281Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hongyonghan">
-<meta name="twitter:description" content="山东科技大学17级学生">
+<meta name="twitter:title" content="数学建模之优劣解距离法">
+<meta name="twitter:description" content="TOPSIS称为优劣解距离法。是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。首先分析层次分析法地一些局限性：（1）评价的决策层不能太多，太多的话n会很大，判断矩阵和一致矩阵地差异可能会很大。平均随机一致性指标R1的表格中n最多是15.（2）如果决策层中的指标的数据是已知的，那么我们如何利用这些数据来使得评价更加准确呢？*一个栗子 *小明宿舍共有四名同学">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190831202904314.png">
   
     <link rel="alternative" href="/atom.xml" title="hongyonghan" type="application/atom+xml">
   
@@ -174,136 +219,304 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数学建模之优劣解距离法理论篇（综合评价）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数学建模之优劣解距离法
+    </h1>
+  
+
+        
+        <a href="/post/数学建模之优劣解距离法理论篇（综合评价）/" class="archive-article-date">
+  	<time datetime="2019-08-21T14:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
+</a>
+        
+	
+		 <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.8k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">6分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+		<!-- 添加代码 -->
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+	
+ 
+		
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>TOPSIS称为优劣解距离法。是一种常用的<strong>综合评价方法</strong>，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。<br>首先分析层次分析法地一些局限性：<br>（1）评价的决策层不能太多，太多的话n会很大，判断矩阵和一致矩阵地差异可能会很大。<br><img src="https://img-blog.csdnimg.cn/20190831202904314.png" alt="在这里插入图片描述"><br>平均随机一致性指标R1的表格中n最多是15.<br>（2）如果决策层中的指标的数据是已知的，那么我们如何利用这些数据来使得评价更加准确呢？<br><img src="https://img-blog.csdnimg.cn/20190831203107385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>*<em>一个栗子 *</em><br>小明宿舍共有四名同学，他们第一学期的高数成绩如下表所示：<br><img src="https://img-blog.csdnimg.cn/20190831203346475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>请你为这四名同学进行评分，该评分能合理的描述其高数成绩的高低。<br>一个很简单的想法：可以直接用成绩来评价一个成绩的高低。排名的成绩越小越好，那么对排名进行处理，让他越大越好。然后对数据进行归一化。用数来除以他们排名的和就可以得到评分。<br><img src="https://img-blog.csdnimg.cn/20190831203703719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后我们修改成绩数据，将小王的分数修为10分，清风的数据修改为90分。但是修改后排名数据是没有变化的，那么评分也不会变化。<br><img src="https://img-blog.csdnimg.cn/20190831203944387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>所以我们之前的评分不够合理。<br>一个比较好的想法：<br><img src="https://img-blog.csdnimg.cn/20190831204055624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后我们找出最高成绩max：99 最低成绩min:60 构造计算评分的公式：x-min/max-min.<br>然后对评分进行归一化，即各个未归一化的评分除以这四个评分的和得到归一化的评分。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190831204526888.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>一个要说明的问题</strong><br> 使用卷面最高分max:100，卷面最低分：0，构造计算评分的公式：x-0/100-0 .这个模型看起来也是可行的。并且可能感觉更好。<br> <img src="https://img-blog.csdnimg.cn/20190831204932752.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 但是缺点如下：<br> （1）比较的对象 一般要远大于两个。（例如一个班的成绩）<br> （2）比较的指标也往往不只是一个方面的，例如成绩、工时数，课外竞赛得分等<br> （3）有很多指标不存在理论上的最大值和最小值。比如衡量经济增长水平的指标：GDP增速。<br> <img src="https://img-blog.csdnimg.cn/20190831205634712.png" alt="在这里插入图片描述"><br> 拓展问题：增加指标个数<br> 新增加一个指标，现在要综合评价四位同学，并为他们评分。<br> <img src="https://img-blog.csdnimg.cn/2019083120575856.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 成绩是<strong>越大越好</strong>，这样的指标称为<strong>极大型指标（效益性指标）</strong><br> 与他人争吵的次数是<strong>越少越好</strong>，这样的指标称为<strong>极小型指标（成本型指标）</strong></p>
+<h5 id="统一指标类型"><a href="#统一指标类型" class="headerlink" title="统一指标类型"></a>统一指标类型</h5><p> 把所有的指标转化成极大型称为<strong>指标正向化（最常用）</strong><br>   <img src="https://img-blog.csdnimg.cn/20190831211026982.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>   极小型指标转化成极大型指标的公式：<strong>max-x</strong><br>   <strong>标准化处理</strong><br>   <img src="https://img-blog.csdnimg.cn/20190831213615787.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>   为了<strong>消去不同指标量纲的影响</strong>，需要对已经正向化的矩阵进行<strong>标准化处理</strong> </p>
+<h5 id="标准化处理的计算公式："><a href="#标准化处理的计算公式：" class="headerlink" title="标准化处理的计算公式："></a>标准化处理的计算公式：</h5><p>   假设有n个要评价的对象，n个评价指标（已经正向化了）构成的正向化矩阵如下：<br>   <img src="https://img-blog.csdnimg.cn/20190831214052614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>   <img src="https://img-blog.csdnimg.cn/20190831214116558.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h5 id="如何计算得分："><a href="#如何计算得分：" class="headerlink" title="如何计算得分："></a>如何计算得分：</h5><p><img src="https://img-blog.csdnimg.cn/20190831214319901.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>只有一个指标的时候，构造计算评分的公式：x-min/max-min<br>变形=（x-min)/(max-min)=(x-min)/(max-x)+(x-min)<br>以上可以看作：<br>x与最小值的距离/x与最大值的距离+x与最小值的距离。<br><img src="https://img-blog.csdnimg.cn/20190831214607659.png" alt="在这里插入图片描述"><br>类比只有一个指标计算得分：<br><img src="https://img-blog.csdnimg.cn/20190831214740424.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如何计算得分<br><img src="https://img-blog.csdnimg.cn/20190831220127646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 一定要经过标准化。<br> <img src="https://img-blog.csdnimg.cn/20190831220749914.png" alt=" "><br> <img src="https://img-blog.csdnimg.cn/20190831225023606.png" alt="在这里插入图片描述"><br> 如何计算得分：<br> <img src="https://img-blog.csdnimg.cn/20190831225604368.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20190831225620422.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20190831225639320.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20190831225654105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> TOPSIS的介绍：<br> TOPSIS法是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确反映各评价方案之间的差距。<br> 基本过程：先将原始数据矩阵统一指标类型（一般正向化处理）得到正向化矩阵，再对正向化矩阵进行标准化处理以消除各指标量纲的影响，并找到有限方案中的最优方案和最劣方案，然后分别计算各评价对象与最优方案和最劣方案的距离，获得各评价对象与最优方案的相对接近程度，以此来作为评价优劣的依据。该方法对数据分布及样本含量没有严格限制，数据计算简单易行。<br> 第一步：将原始矩阵正向化<br> 最常见的四种指标：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190831230405772.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  所谓的将原始 矩阵正向化，就是要将所有指标类型统一转化成极大型指标。（转换的函数形式可以不唯一）<br>  <strong>极小型指标-&gt;极大型指标</strong><br>  <img src="https://img-blog.csdnimg.cn/20190901102310374.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  极小型指标转换为极大型指标的公式:max-x<br>  如果所有的元素均为正数，那么也可以使用1/x.<br>  但是还是推荐使用第一种：max-x。第二种限制条件太多。<br>  <strong>中间型指标-&gt;极大型指标</strong><br>  中间型指标：指指标既不要太大也不要太小，取某个特定值最好（例如水质量评估PH值）{xi}是一组中间型指标序列，且最佳的数值为xbest，那么正向化的公式如下：<br>  <img src="https://img-blog.csdnimg.cn/20190901102857660.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20190903152705256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 根据如上表中的数据如何计算M呢。因为是计算的PH值，则最好的值为xbest,则M的计算如下：<br> <img src="https://img-blog.csdnimg.cn/20190903153204269.png" alt="在这里插入图片描述"></p>
+<h6 id="区间型指标转化成极大型指标"><a href="#区间型指标转化成极大型指标" class="headerlink" title="区间型指标转化成极大型指标"></a>区间型指标转化成极大型指标</h6><p> 区间型指标：指标值落在某个区间最好，例如人的体温落在36度-37度这个区间比较好。<br> {xi}是一组中间型指标序列，且最佳的的区间为[a,b],那么正向化的公式如下：<br> <img src="https://img-blog.csdnimg.cn/20190903153733356.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20190903153745212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt=" "><br> 以体温的题目为例：<br> <img src="https://img-blog.csdnimg.cn/20190903153912352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20190903153939495.png" alt="在这里插入图片描述"><br> 第二步：正向化矩阵标准化：<br> 标准化的目的主要是消除不同指标量纲的影响。<br> 假如有n个要评价的对象，m个评价指标（指标已经正向化）构成的正向化矩阵如下：<br> <img src="https://img-blog.csdnimg.cn/20190903154208899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 那么，对其标准化的矩阵记为Z,Z中的每一个元素：<br> <img src="https://img-blog.csdnimg.cn/20190903154620315.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/2019090315464965.png" alt="在这里插入图片描述"><br> 第三步：计算得分并归一化。<br> 假设有n个要评价的对象，m个评价指标的标准化矩阵。<br> <img src="https://img-blog.csdnimg.cn/20190903155045349.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20190903155209839.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> <strong>一起做个题</strong><br> <img src="https://img-blog.csdnimg.cn/2019090315554068.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 由含氧量越大越好是一个极大型指标，PH值越接近于7越好，是一个中间型指标，细菌总数越少越好，是一个极小型指标，植物性营养物量介于10-20之家最佳是一个区间型指标。<br> 模型拓展：<br> <img src="https://img-blog.csdnimg.cn/20190903162124979.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 在模型中我们默认了相同的权重。但是实际中指标的权重可能是不同的。所以我们定义评价对象和最大值的距离D+和评价对象与最小值的距离D-的时候，我们在前面加上权重wj。<br> 具体如下：<br> <img src="https://img-blog.csdnimg.cn/20190903162422414.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 然后怎么设置权重呢？用层次分析法即可。<br> <strong>带权重的TOPSIS</strong><br> 假设有n个要评价的对象，m个评价指标的标准化矩阵。<br> <img src="https://img-blog.csdnimg.cn/20190903162634572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 可以使用层次分析法给这m个评价指标确定权重：</p>
+<p> <img src="https://img-blog.csdnimg.cn/20190903162724665.png" alt="在这里插入图片描述"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+			
+			  
+
+
+
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>愿一起成长<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+				  
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+					  
+                    </div>
+                    
+				
+                    
+					
+					
+				
+                  </div>
+                </span>
+              </span>
+			 
+            </span>
+		<!-- 添加代码  -->
+<span id="busuanzi_container_page_pv">
+   本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- article.ejs自身代码-->
+<span id="busuanzi_container_page_pv">
+   		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	    </span>
+
+          </div>
+          </a>
+        </div>
+      
+	  
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/数据结构课设《职工管理系统》/" class="archive-article-date">
-  	<time datetime="2019-07-22T00:32:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/数据结构课设《职工管理系统》/">数据结构课设《职工管理系统》</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">数据结构 职工管理系统</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">优劣解距离法 数学建模</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://hongyonghan.github.io/post/数学建模之优劣解距离法理论篇（综合评价）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+	  
+      <div class="clearfix">
+	  </div>
+    </div>
   </div>
 </article>
+
   
+<nav id="article-nav">
+  
+    <a href="/post/数学建模之聚类分析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数学建模之聚类分析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post/数据结构课设《职工管理系统》/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构课设《职工管理系统》</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/面试题之String、StringBuffer、StringBuilder有什么区别/" class="archive-article-date">
-  	<time datetime="2019-07-21T14:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
+    <!--MOB SHARE BEGIN-->
+    <div class="-mob-share-ui-button -mob-share-open">分享</div>
+    <div class="-mob-share-ui" style="display: none">
+        <ul class="-mob-share-list">
+            <li class="-mob-share-weibo"><p>新浪微博</p></li>
+            <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+            <li class="-mob-share-qzone"><p>QQ空间</p></li>
+            <li class="-mob-share-qq"><p>QQ好友</p></li>
+            <li class="-mob-share-weixin"><p>微信</p></li>                        <li class="-mob-share-twitter"><p>Twitter</p></li>     
+            <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+            <li class="-mob-share-mingdao"><p>明道</p></li>            
+            <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+        </ul>
+    <div class="-mob-share-close">取消</div>
+</div>
+    <div class="-mob-share-ui-bg"></div>
+    <script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey={{ theme.shareSDKappkey }}"></script>
+<!--MOB SHARE END-->
+
+					
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "sIwU88GIB3HAxXR2BqejDlep-gzGzoHsz",
+            app_key: "PBt9V2tROfVypmHjNmPz0eIS",
+            placeholder: "Just go go",
+            avatar:"mm"
+        });
+    }
+</script>
+  </section>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/面试题之String、StringBuffer、StringBuilder有什么区别/">面试题之String、StringBuffer、StringBuilder有什么区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">String StringBuffer StrigBuilder</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#统一指标类型"><span class="toc-number">1.</span> <span class="toc-text">统一指标类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#标准化处理的计算公式："><span class="toc-number">2.</span> <span class="toc-text">标准化处理的计算公式：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#如何计算得分："><span class="toc-number">3.</span> <span class="toc-text">如何计算得分：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#区间型指标转化成极大型指标"><span class="toc-number">3.1.</span> <span class="toc-text">区间型指标转化成极大型指标</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/post/JSP连接数据库实现注册登录/" class="archive-article-date">
-  	<time datetime="2019-07-21T14:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/post/JSP连接数据库实现注册登录/">JSP连接数据库实现注册登录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JSP 注册 登录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -330,8 +543,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
