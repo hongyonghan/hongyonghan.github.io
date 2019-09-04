@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://hongyonghan.github.io">
-  <title>hongyonghan</title>
+  <title>面试题之String、StringBuffer、StringBuilder有什么区别 | hongyonghan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: JSP连接数据库实现注册登录date: 2019-07-21 22:03:44tags: JSP 注册 登录 StringString类底层是字符数组常量，加法操作。String在进行字符串拼接时，会产生大量的垃圾数据，占用内存空间，消耗资源、执行效率是非常慢的。StringBuffer、StringBuild可以直接给char数组进行赋值，所以不会占用太多空间、而且拼接的效率也是比">
-<meta name="keywords" content="机器学习 人工智能">
+  <meta name="description" content="StringString类底层是字符数组常量，加法操作。String在进行字符串拼接时，会产生大量的垃圾数据，占用内存空间，消耗资源、执行效率是非常慢的。StringBuffer、StringBuild可以直接给char数组进行赋值，所以不会占用太多空间、而且拼接的效率也是比较快的。StringBuffer线程安全，执行效率较低。StringBuilder线程不安全，执行效率最高。">
+<meta name="keywords" content="String StringBuffer StrigBuilder">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hongyonghan">
+<meta property="og:title" content="面试题之String、StringBuffer、StringBuilder有什么区别">
 <meta property="og:url" content="https://hongyonghan.github.io/post/面试题之String、StringBuffer、StringBuilder有什么区别/index.html">
 <meta property="og:site_name" content="hongyonghan">
-<meta property="og:description" content="title: JSP连接数据库实现注册登录date: 2019-07-21 22:03:44tags: JSP 注册 登录 StringString类底层是字符数组常量，加法操作。String在进行字符串拼接时，会产生大量的垃圾数据，占用内存空间，消耗资源、执行效率是非常慢的。StringBuffer、StringBuild可以直接给char数组进行赋值，所以不会占用太多空间、而且拼接的效率也是比">
+<meta property="og:description" content="StringString类底层是字符数组常量，加法操作。String在进行字符串拼接时，会产生大量的垃圾数据，占用内存空间，消耗资源、执行效率是非常慢的。StringBuffer、StringBuild可以直接给char数组进行赋值，所以不会占用太多空间、而且拼接的效率也是比较快的。StringBuffer线程安全，执行效率较低。StringBuilder线程不安全，执行效率最高。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-04T15:20:42.781Z">
+<meta property="og:updated_time" content="2019-09-04T15:25:36.749Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hongyonghan">
-<meta name="twitter:description" content="title: JSP连接数据库实现注册登录date: 2019-07-21 22:03:44tags: JSP 注册 登录 StringString类底层是字符数组常量，加法操作。String在进行字符串拼接时，会产生大量的垃圾数据，占用内存空间，消耗资源、执行效率是非常慢的。StringBuffer、StringBuild可以直接给char数组进行赋值，所以不会占用太多空间、而且拼接的效率也是比">
+<meta name="twitter:title" content="面试题之String、StringBuffer、StringBuilder有什么区别">
+<meta name="twitter:description" content="StringString类底层是字符数组常量，加法操作。String在进行字符串拼接时，会产生大量的垃圾数据，占用内存空间，消耗资源、执行效率是非常慢的。StringBuffer、StringBuild可以直接给char数组进行赋值，所以不会占用太多空间、而且拼接的效率也是比较快的。StringBuffer线程安全，执行效率较低。StringBuilder线程不安全，执行效率最高。">
   
     <link rel="alternative" href="/atom.xml" title="hongyonghan" type="application/atom+xml">
   
@@ -178,10 +178,57 @@ var _hmt = _hmt || [];
             <article id="post-面试题之String、StringBuffer、StringBuilder有什么区别" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面试题之String、StringBuffer、StringBuilder有什么区别
+    </h1>
+  
+
+        
+        <a href="/post/面试题之String、StringBuffer、StringBuilder有什么区别/" class="archive-article-date">
+  	<time datetime="2019-07-21T14:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
+</a>
+        
+	
+		 <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">113字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+		<!-- 添加代码 -->
+	
+		<span class="archive-article-date">
+			阅读量 <span id="busuanzi_value_page_pv"></span>
+		</span>
+	
+ 
+		
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: JSP连接数据库实现注册登录<br>date: 2019-07-21 22:03:44<br>tags: JSP 注册 登录</p>
-<p><strong>String</strong><br>String类底层是字符数组常量，加法操作。<br>String在进行字符串拼接时，会产生大量的垃圾数据，占用内存空间，消耗资源、执行效率是非常慢的。<br><strong>StringBuffer、StringBuild</strong>可以直接给char数组进行赋值，所以不会占用太多空间、而且拼接的效率也是比较快的。<br><strong>StringBuffer</strong>线程安全，执行效率较低。<br><strong>StringBuilder</strong>线程不安全，执行效率最高。</p>
+        <p><strong>String</strong><br>String类底层是字符数组常量，加法操作。<br>String在进行字符串拼接时，会产生大量的垃圾数据，占用内存空间，消耗资源、执行效率是非常慢的。<br><strong>StringBuffer、StringBuild</strong>可以直接给char数组进行赋值，所以不会占用太多空间、而且拼接的效率也是比较快的。<br><strong>StringBuffer</strong>线程安全，执行效率较低。<br><strong>StringBuilder</strong>线程不安全，执行效率最高。</p>
 
       
 
@@ -239,6 +286,17 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">String StringBuffer StrigBuilder</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -305,9 +363,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
+    <a href="/post/数据结构课设《职工管理系统》/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数据结构课设《职工管理系统》
+        
+      </div>
+    </a>
   
-    <a href="/post/数据结构课设《职工管理系统》/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据结构课设《职工管理系统》</div>
+  
+    <a href="/post/JSP连接数据库实现注册登录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JSP连接数据库实现注册登录</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -495,6 +562,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">String StringBuffer StrigBuilder</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">数据结构 职工管理系统</a>
