@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="https://hongyonghan.github.io">
   <title>数学建模之优劣解距离法 | hongyonghan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="TOPSIS称为优劣解距离法。是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。">
+  <meta name="description" content="TOPSIS称为优劣解距离法。是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。首先分析层次分析法地一些局限性：（1）评价的决策层不能太多，太多的话n会很大，判断矩阵和一致矩阵地差异可能会很大。平均随机一致性指标R1的表格中n最多是15.（2）如果决策层中的指标的数据是已知的，那么我们如何利用这些数据来使得评价更加准确呢？*一个栗子 *小明宿舍共有四名同">
 <meta name="keywords" content="优劣解距离法 数学建模">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数学建模之优劣解距离法">
 <meta property="og:url" content="https://hongyonghan.github.io/post/数学建模之优劣解距离法理论篇（综合评价）/index.html">
 <meta property="og:site_name" content="hongyonghan">
-<meta property="og:description" content="TOPSIS称为优劣解距离法。是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。">
+<meta property="og:description" content="TOPSIS称为优劣解距离法。是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。首先分析层次分析法地一些局限性：（1）评价的决策层不能太多，太多的话n会很大，判断矩阵和一致矩阵地差异可能会很大。平均随机一致性指标R1的表格中n最多是15.（2）如果决策层中的指标的数据是已知的，那么我们如何利用这些数据来使得评价更加准确呢？*一个栗子 *小明宿舍共有四名同">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190831202904314.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190831203107385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
@@ -59,10 +59,10 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190903162422414.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190903162634572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190903162724665.png">
-<meta property="og:updated_time" content="2019-09-05T03:03:05.570Z">
+<meta property="og:updated_time" content="2019-09-05T03:08:48.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数学建模之优劣解距离法">
-<meta name="twitter:description" content="TOPSIS称为优劣解距离法。是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。">
+<meta name="twitter:description" content="TOPSIS称为优劣解距离法。是一种常用的综合评价方法，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。首先分析层次分析法地一些局限性：（1）评价的决策层不能太多，太多的话n会很大，判断矩阵和一致矩阵地差异可能会很大。平均随机一致性指标R1的表格中n最多是15.（2）如果决策层中的指标的数据是已知的，那么我们如何利用这些数据来使得评价更加准确呢？*一个栗子 *小明宿舍共有四名同">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190831202904314.png">
   
     <link rel="alternative" href="/atom.xml" title="hongyonghan" type="application/atom+xml">
@@ -272,9 +272,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>TOPSIS称为优劣解距离法。是一种常用的<strong>综合评价方法</strong>，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。 </p>
-<a id="more"></a>
-<p>首先分析层次分析法地一些局限性：<br>（1）评价的决策层不能太多，太多的话n会很大，判断矩阵和一致矩阵地差异可能会很大。<br><img src="https://img-blog.csdnimg.cn/20190831202904314.png" alt="在这里插入图片描述"><br>平均随机一致性指标R1的表格中n最多是15.<br>（2）如果决策层中的指标的数据是已知的，那么我们如何利用这些数据来使得评价更加准确呢？<br><img src="https://img-blog.csdnimg.cn/20190831203107385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>*<em>一个栗子 *</em><br>小明宿舍共有四名同学，他们第一学期的高数成绩如下表所示：<br><img src="https://img-blog.csdnimg.cn/20190831203346475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>请你为这四名同学进行评分，该评分能合理的描述其高数成绩的高低。<br>一个很简单的想法：可以直接用成绩来评价一个成绩的高低。排名的成绩越小越好，那么对排名进行处理，让他越大越好。然后对数据进行归一化。用数来除以他们排名的和就可以得到评分。<br><img src="https://img-blog.csdnimg.cn/20190831203703719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后我们修改成绩数据，将小王的分数修为10分，清风的数据修改为90分。但是修改后排名数据是没有变化的，那么评分也不会变化。<br><img src="https://img-blog.csdnimg.cn/20190831203944387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>所以我们之前的评分不够合理。<br>一个比较好的想法：<br><img src="https://img-blog.csdnimg.cn/20190831204055624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后我们找出最高成绩max：99 最低成绩min:60 构造计算评分的公式：x-min/max-min.<br>然后对评分进行归一化，即各个未归一化的评分除以这四个评分的和得到归一化的评分。</p>
+        <a id="more"></a>
+<p>TOPSIS称为优劣解距离法。是一种常用的<strong>综合评价方法</strong>，能充分利用原始数据的信息，其结果能精确地反映各评价方案之间地差距。<br>首先分析层次分析法地一些局限性：<br>（1）评价的决策层不能太多，太多的话n会很大，判断矩阵和一致矩阵地差异可能会很大。<br><img src="https://img-blog.csdnimg.cn/20190831202904314.png" alt="在这里插入图片描述"><br>平均随机一致性指标R1的表格中n最多是15.<br>（2）如果决策层中的指标的数据是已知的，那么我们如何利用这些数据来使得评价更加准确呢？<br><img src="https://img-blog.csdnimg.cn/20190831203107385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>*<em>一个栗子 *</em><br>小明宿舍共有四名同学，他们第一学期的高数成绩如下表所示：<br><img src="https://img-blog.csdnimg.cn/20190831203346475.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>请你为这四名同学进行评分，该评分能合理的描述其高数成绩的高低。<br>一个很简单的想法：可以直接用成绩来评价一个成绩的高低。排名的成绩越小越好，那么对排名进行处理，让他越大越好。然后对数据进行归一化。用数来除以他们排名的和就可以得到评分。<br><img src="https://img-blog.csdnimg.cn/20190831203703719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后我们修改成绩数据，将小王的分数修为10分，清风的数据修改为90分。但是修改后排名数据是没有变化的，那么评分也不会变化。<br><img src="https://img-blog.csdnimg.cn/20190831203944387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>所以我们之前的评分不够合理。<br>一个比较好的想法：<br><img src="https://img-blog.csdnimg.cn/20190831204055624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后我们找出最高成绩max：99 最低成绩min:60 构造计算评分的公式：x-min/max-min.<br>然后对评分进行归一化，即各个未归一化的评分除以这四个评分的和得到归一化的评分。</p>
 <p><img src="https://img-blog.csdnimg.cn/20190831204526888.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>一个要说明的问题</strong><br> 使用卷面最高分max:100，卷面最低分：0，构造计算评分的公式：x-0/100-0 .这个模型看起来也是可行的。并且可能感觉更好。<br> <img src="https://img-blog.csdnimg.cn/20190831204932752.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 但是缺点如下：<br> （1）比较的对象 一般要远大于两个。（例如一个班的成绩）<br> （2）比较的指标也往往不只是一个方面的，例如成绩、工时数，课外竞赛得分等<br> （3）有很多指标不存在理论上的最大值和最小值。比如衡量经济增长水平的指标：GDP增速。<br> <img src="https://img-blog.csdnimg.cn/20190831205634712.png" alt="在这里插入图片描述"><br> 拓展问题：增加指标个数<br> 新增加一个指标，现在要综合评价四位同学，并为他们评分。<br> <img src="https://img-blog.csdnimg.cn/2019083120575856.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 成绩是<strong>越大越好</strong>，这样的指标称为<strong>极大型指标（效益性指标）</strong><br> 与他人争吵的次数是<strong>越少越好</strong>，这样的指标称为<strong>极小型指标（成本型指标）</strong></p>
 <h5 id="统一指标类型"><a href="#统一指标类型" class="headerlink" title="统一指标类型"></a>统一指标类型</h5><p> 把所有的指标转化成极大型称为<strong>指标正向化（最常用）</strong><br>   <img src="https://img-blog.csdnimg.cn/20190831211026982.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>   极小型指标转化成极大型指标的公式：<strong>max-x</strong><br>   <strong>标准化处理</strong><br>   <img src="https://img-blog.csdnimg.cn/20190831213615787.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>   为了<strong>消去不同指标量纲的影响</strong>，需要对已经正向化的矩阵进行<strong>标准化处理</strong> </p>
 <h5 id="标准化处理的计算公式："><a href="#标准化处理的计算公式：" class="headerlink" title="标准化处理的计算公式："></a>标准化处理的计算公式：</h5><p>   假设有n个要评价的对象，n个评价指标（已经正向化了）构成的正向化矩阵如下：<br>   <img src="https://img-blog.csdnimg.cn/20190831214052614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>   <img src="https://img-blog.csdnimg.cn/20190831214116558.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwNjA1MTY3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
@@ -621,11 +620,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据结构 职工管理系统</a>
+                <a href="javascript:void(0)" class="js-tag color3">String StringBuffer StrigBuilder</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">String StringBuffer StrigBuilder</a>
+                <a href="javascript:void(0)" class="js-tag color2">数据结构 职工管理系统</a>
               </li>
              
               <li class="article-tag-list-item">
