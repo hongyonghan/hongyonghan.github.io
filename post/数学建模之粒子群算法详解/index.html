@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="https://hongyonghan.github.io">
   <title>数学建模之粒子群（鸟群算法）算法 | hongyonghan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="粒子群（鸟群算法）算法是典型的寻优算法。分为全局最优和局部最优。 基本思想：主要模拟自然界生物捕食的策略，群体迭代，粒子在解空间追随最优的例子进行搜索。是智能算法的一种。算法特点：  简单易行。 收敛速度快。 设置参数少。一般的限制条件是当达到限制步数或者达到相应的准确度的时，粒子就会停止移动。设想一个场景：一群鸟在随机搜索食物。已知（假设）： 1.在这块区域里只有一块食物。 2.所有的鸟都不知道">
+  <meta name="description" content="粒子群（鸟群算法）算法是典型的寻优算法。分为全局最优和局部最优。 基本思想：主要模拟自然界生物捕食的策略，群体迭代，粒子在解空间追随最优的例子进行搜索。是智能算法的一种。算法特点：  简单易行。 收敛速度快。 设置参数少。">
 <meta name="keywords" content="数学建模 粒子群（鸟群算法）算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数学建模之粒子群（鸟群算法）算法">
 <meta property="og:url" content="https://hongyonghan.github.io/post/数学建模之粒子群算法详解/index.html">
 <meta property="og:site_name" content="hongyonghan">
-<meta property="og:description" content="粒子群（鸟群算法）算法是典型的寻优算法。分为全局最优和局部最优。 基本思想：主要模拟自然界生物捕食的策略，群体迭代，粒子在解空间追随最优的例子进行搜索。是智能算法的一种。算法特点：  简单易行。 收敛速度快。 设置参数少。一般的限制条件是当达到限制步数或者达到相应的准确度的时，粒子就会停止移动。设想一个场景：一群鸟在随机搜索食物。已知（假设）： 1.在这块区域里只有一块食物。 2.所有的鸟都不知道">
+<meta property="og:description" content="粒子群（鸟群算法）算法是典型的寻优算法。分为全局最优和局部最优。 基本思想：主要模拟自然界生物捕食的策略，群体迭代，粒子在解空间追随最优的例子进行搜索。是智能算法的一种。算法特点：  简单易行。 收敛速度快。 设置参数少。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190826224328321.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190826224828249.png">
@@ -34,10 +34,10 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190831160932151.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190831190206677.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190831190231923.png">
-<meta property="og:updated_time" content="2019-09-04T15:34:18.232Z">
+<meta property="og:updated_time" content="2019-09-05T03:02:41.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数学建模之粒子群（鸟群算法）算法">
-<meta name="twitter:description" content="粒子群（鸟群算法）算法是典型的寻优算法。分为全局最优和局部最优。 基本思想：主要模拟自然界生物捕食的策略，群体迭代，粒子在解空间追随最优的例子进行搜索。是智能算法的一种。算法特点：  简单易行。 收敛速度快。 设置参数少。一般的限制条件是当达到限制步数或者达到相应的准确度的时，粒子就会停止移动。设想一个场景：一群鸟在随机搜索食物。已知（假设）： 1.在这块区域里只有一块食物。 2.所有的鸟都不知道">
+<meta name="twitter:description" content="粒子群（鸟群算法）算法是典型的寻优算法。分为全局最优和局部最优。 基本思想：主要模拟自然界生物捕食的策略，群体迭代，粒子在解空间追随最优的例子进行搜索。是智能算法的一种。算法特点：  简单易行。 收敛速度快。 设置参数少。">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190826224328321.png">
   
     <link rel="alternative" href="/atom.xml" title="hongyonghan" type="application/atom+xml">
@@ -251,7 +251,8 @@ var _hmt = _hmt || [];
 <ol>
 <li>简单易行。</li>
 <li>收敛速度快。</li>
-<li>设置参数少。<br>一般的限制条件是当达到限制步数或者达到相应的准确度的时，粒子就会停止移动。<br>设想一个场景：一群鸟在随机搜索食物。<br>已知（假设）：</li>
+<li>设置参数少。<a id="more"></a>
+一般的限制条件是当达到限制步数或者达到相应的准确度的时，粒子就会停止移动。<br>设想一个场景：一群鸟在随机搜索食物。<br>已知（假设）：</li>
 <li>1.在这块区域里只有一块食物。</li>
 <li>2.所有的鸟都不知道食物在哪。</li>
 <li>3.但他们能感受到当前的位置离食物还有多远。<br>问题是：找到食物的最优策略是什么。<br>搜索目前离食物最近的鸟的周围区域，根据自己飞行经验判断食物的所在。<br><strong>PSO的基础:信息的社会共享</strong><h4 id="算法介绍"><a href="#算法介绍" class="headerlink" title="算法介绍"></a>算法介绍</h4></li>
@@ -642,11 +643,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数学建模 粒子群（鸟群算法）算法</a>
+                <a href="javascript:void(0)" class="js-tag color2">优劣解距离法 数学建模</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">优劣解距离法 数学建模</a>
+                <a href="javascript:void(0)" class="js-tag color2">数学建模 粒子群（鸟群算法）算法</a>
               </li>
              
               <li class="article-tag-list-item">
